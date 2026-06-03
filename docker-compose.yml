@@ -1,0 +1,47 @@
+services:
+  mongo:
+    image: mongo:8.0
+    container_name: corelab_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  server:
+    build:
+      context: ./server
+    container_name: corelab_server
+    ports:
+      - "4242:4242"
+    environment:
+      PORT: 4242
+      MONGO_URI: mongodb://mongo:27017/corelab_lms
+      JWT_SECRET: change_me
+      JWT_EXPIRES_IN: 1d
+      BCRYPT_SALT_ROUNDS: 10
+      CLIENT_URL: http://localhost:3000
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    depends_on:
+      - mongo
+    command: npm run dev
+
+  client:
+    build:
+      context: ./client
+    container_name: corelab_client
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_URL: http://localhost:4242
+      CHOKIDAR_USEPOLLING: true
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - server
+    command: npm run dev -- --host 0.0.0.0
+
+volumes:
+  mongo_data:

@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 import ProgressBar from '../components/ProgressBar'
 import CourseCard from '../components/CourseCard'
 import NotificationBanner from '../components/NotificationBanner'
+import Footer from '../components/Footer'
 
 export default function StudentDashboard() {
   const { user } = useAuth()
@@ -174,5 +175,6 @@ export default function StudentDashboard() {
 
       </div>
     </div>
+    <Footer />
   )
 }

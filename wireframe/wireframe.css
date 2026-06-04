@@ -1,0 +1,239 @@
+body.wf-body {
+  background: #e0e0e0;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: #333;
+  padding-bottom: 40px;
+}
+
+.wf-topbar {
+  background: #333;
+  color: #ddd;
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.wf-topbar a { color: #fff; text-decoration: none; }
+.wf-topbar a:hover { text-decoration: underline; }
+
+.wf-page {
+  background: white;
+  border: 2px solid #aaa;
+  margin: 0 auto;
+  max-width: 1100px;
+  min-height: 600px;
+}
+
+.wf-center-page {
+  max-width: 480px;
+  padding: 40px 32px;
+}
+
+.wf-block {
+  background: #d0d0d0;
+  border: 1px dashed #999;
+  padding: 8px 12px;
+  color: #555;
+  font-size: 0.8rem;
+}
+
+.wf-label {
+  font-size: 0.65rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.wf-input {
+  background: #f5f5f5;
+  border: 2px solid #aaa;
+  padding: 8px 12px;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.wf-btn {
+  background: #444;
+  color: white;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+.wf-btn-sm {
+  background: #444;
+  color: white;
+  padding: 5px 14px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.wf-btn-outline {
+  background: white;
+  color: #444;
+  border: 2px solid #444;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+.wf-card {
+  border: 2px solid #aaa;
+  background: white;
+}
+
+.wf-card-header {
+  background: #d0d0d0;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-bottom: 2px solid #aaa;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.wf-navbar {
+  background: #333;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 2px solid #aaa;
+}
+.wf-navbar .brand {
+  font-weight: bold;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  padding: 4px 12px;
+  letter-spacing: 2px;
+}
+.wf-navbar .nav-link {
+  color: #ccc;
+  font-size: 0.82rem;
+  padding-bottom: 2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.wf-navbar .nav-link.active {
+  color: white;
+  border-bottom: 2px solid white;
+  font-weight: bold;
+}
+.wf-navbar .ms-auto { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+
+.wf-progress {
+  height: 10px;
+  background: #ddd;
+  border: 1px solid #aaa;
+  margin: 4px 0;
+}
+.wf-progress-bar {
+  height: 100%;
+  background: #555;
+}
+
+.wf-badge {
+  background: #bbb;
+  color: #444;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.wf-badge-dark {
+  background: #444;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.wf-divider {
+  border: none;
+  border-top: 2px dashed #ccc;
+  margin: 16px 0;
+}
+
+.wf-annotations {
+  border: 2px dashed #f0c000;
+  background: #fffde7;
+  padding: 12px 16px;
+  margin-top: 16px;
+}
+.wf-annotation {
+  font-size: 0.75rem;
+  color: #7a6000;
+  margin-bottom: 4px;
+}
+.wf-annotation:last-child { margin-bottom: 0; }
+
+.wf-hero {
+  background: #444;
+  color: white;
+  padding: 24px;
+  border-bottom: 2px solid #aaa;
+}
+
+.wf-sidebar {
+  border-right: 2px solid #aaa;
+  padding: 16px;
+  background: #fafafa;
+  min-height: 500px;
+}
+
+.wf-main {
+  padding: 20px;
+}
+
+.wf-lock-badge {
+  background: #eee;
+  border: 1px solid #aaa;
+  color: #888;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wf-radio {
+  width: 14px; height: 14px;
+  border: 2px solid #888;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.wf-radio.selected {
+  background: #444;
+  border-color: #444;
+}
+
+.wf-score-box {
+  border: 3px solid #555;
+  padding: 24px;
+  text-align: center;
+  background: #f5f5f5;
+}

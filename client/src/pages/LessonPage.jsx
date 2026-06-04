@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { fetchLesson, isLessonAvailable, markLessonComplete } from '../services/api'
 import { formatDate } from '../utils/date'
+import { estimateReadTime } from '../utils/time'
 import Navbar from '../components/Navbar'
 
 export default function LessonPage() {
@@ -98,7 +99,8 @@ export default function LessonPage() {
               <span>📖</span>
               <small className="text-white-50">Leçon</small>
             </div>
-            <h1 className="fw-bold mb-0" style={{ fontSize: '1.5rem' }}>{lesson.title}</h1>
+            <h1 className="fw-bold mb-1" style={{ fontSize: '1.5rem' }}>{lesson.title}</h1>
+            <small style={{ opacity: 0.7 }}>⏱ {estimateReadTime(lesson.content)} min de lecture</small>
           </div>
 
           <div className="card-body p-4">

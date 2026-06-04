@@ -14,6 +14,15 @@ async function adminFetch(path, options = {}) {
   return data
 }
 
+async function statsFetch() {
+  const res = await fetch('/api/stats', {
+    headers: { Authorization: `Bearer ${getToken()}` },
+  })
+  const data = await res.json()
+  if (!res.ok) throw new Error(data.error || `Erreur ${res.status}`)
+  return data
+}
+
 export const getUsers = () => adminFetch('/users')
 export const importUsers = (csv) => adminFetch('/users/import', { method: 'POST', body: JSON.stringify({ csv }) })
 export const assignCourses = (userId, courseIds) => adminFetch(`/users/${userId}/courses`, { method: 'PUT', body: JSON.stringify({ courseIds }) })
@@ -31,3 +40,4 @@ export const deleteQuiz = (id) => adminFetch(`/quizzes/${id}`, { method: 'DELETE
 
 export const getGrades = () => adminFetch('/grades')
 export const getStudentGrades = (userId) => adminFetch(`/grades/students/${userId}`)
+export const getStats = () => statsFetch()

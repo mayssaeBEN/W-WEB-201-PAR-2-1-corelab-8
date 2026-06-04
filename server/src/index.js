@@ -8,6 +8,7 @@ import coursesRoutes from './routes/courses.js'
 import lessonsRoutes from './routes/lessons.js'
 import quizzesRoutes from './routes/quizzes.js'
 import adminRoutes from './routes/admin.js'
+import statsRoutes from './routes/stats.js'
 
 const app = express()
 const PORT = process.env.PORT || 4242
@@ -22,6 +23,7 @@ app.use('/api/courses', coursesRoutes)
 app.use('/api/lessons', lessonsRoutes)
 app.use('/api/quizzes', quizzesRoutes)
 app.use('/api/admin', adminRoutes)
+app.use('/api/stats', statsRoutes)
 
 app.get('/api/health', (_, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }))
 

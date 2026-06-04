@@ -18,6 +18,7 @@ import AdminUsersPage from './pages/admin/AdminUsersPage'
 import AdminCoursesPage from './pages/admin/AdminCoursesPage'
 import AdminCourseDetailPage from './pages/admin/AdminCourseDetailPage'
 import AdminGradesPage from './pages/admin/AdminGradesPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 export default function App() {
   return (
@@ -46,7 +47,7 @@ export default function App() {
             <Route path="/admin/grades" element={<AdminGradesPage />} />
           </Route>
 
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

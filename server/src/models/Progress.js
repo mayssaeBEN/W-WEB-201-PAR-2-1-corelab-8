@@ -12,5 +12,6 @@ const progressSchema = new mongoose.Schema({
 
 progressSchema.index({ userId: 1, lessonId: 1 }, { unique: true, sparse: true })
 progressSchema.index({ userId: 1, quizId: 1 })
+progressSchema.index({ userId: 1, type: 1, completedAt: -1 })
 
 export default mongoose.model('Progress', progressSchema)

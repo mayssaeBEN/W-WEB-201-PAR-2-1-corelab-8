@@ -4,6 +4,7 @@ import Quiz from '../models/Quiz.js'
 import Progress from '../models/Progress.js'
 import { authenticate } from '../middleware/auth.js'
 import { validate } from '../middleware/validate.js'
+import { calculateScore } from '../utils/scoring.js'
 
 const router = Router()
 
@@ -29,21 +30,7 @@ router.post('/:id/submit', authenticate, validate(submitSchema), async (req, res
     if (!quiz) return res.status(404).json({ error: 'Quiz introuvable' })
 
     const { answers } = req.body
-    let correct = 0
-
-    const feedback = quiz.questions.map(q => {
-      const given = answers[q._id.toString()]
-      const givenArr = Array.isArray(given) ? given : given ? [given] : []
-      const isCorrect =
-        q.correctAnswers.every(a => givenArr.includes(a)) &&
-        givenArr.every(a => q.correctAnswers.includes(a))
-      if (isCorrect) correct++
-      return { questionId: q._id, correct: isCorrect, correctAnswers: q.correctAnswers }
-    })
-
-    const score = quiz.questions.length > 0
-      ? Math.round((correct / quiz.questions.length) * 100)
-      : 0
+    const { score, correct, total, feedback } = calculateScore(quiz.questions, answers)
     const passed = score >= quiz.passingScore
 
     await Progress.create({
@@ -55,7 +42,7 @@ router.post('/:id/submit', authenticate, validate(submitSchema), async (req, res
       completedAt: new Date(),
     })
 
-    res.json({ score, passed, passingScore: quiz.passingScore, correct, total: quiz.questions.length, feedback })
+    res.json({ score, passed, passingScore: quiz.passingScore, correct, total, feedback })
   } catch {
     res.status(500).json({ error: 'Erreur serveur' })
   }

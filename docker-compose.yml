@@ -2,40 +2,49 @@ services:
   mongo:
     image: mongo:8.0
     container_name: corelab_mongo
+    restart: unless-stopped
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   server:
     build:
       context: ./server
     container_name: corelab_server
+    restart: unless-stopped
     ports:
       - "4242:4242"
     environment:
       PORT: 4242
       MONGO_URI: mongodb://mongo:27017/corelab_lms
-      JWT_SECRET: change_me
-      JWT_EXPIRES_IN: 1d
-      BCRYPT_SALT_ROUNDS: 10
+      JWT_SECRET: ${JWT_SECRET:-change_me_in_production}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-1d}
+      BCRYPT_SALT_ROUNDS: ${BCRYPT_SALT_ROUNDS:-10}
       CLIENT_URL: http://localhost:3000
     volumes:
       - ./server:/app
       - /app/node_modules
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy
     command: npm run dev
 
   client:
     build:
       context: ./client
     container_name: corelab_client
+    restart: unless-stopped
     ports:
       - "3000:3000"
     environment:
       VITE_API_URL: http://localhost:4242
-      CHOKIDAR_USEPOLLING: true
+      CHOKIDAR_USEPOLLING: "true"
     volumes:
       - ./client:/app
       - /app/node_modules

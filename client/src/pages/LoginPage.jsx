@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 
 export default function LoginPage() {
-  const { login } = useAuth()
+  const { login, isAuth, user } = useAuth()
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
+
+  useEffect(() => {
+    if (isAuth) navigate(user?.role === 'admin' ? '/admin' : '/dashboard', { replace: true })
+  }, [isAuth, user, navigate])
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)

@@ -25,7 +25,7 @@ export default function StudentDashboard() {
   const completedLessons = courses.reduce((s, c) => s + c.completedLessons, 0)
   const globalPct = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0
   const activeCourses = courses.filter(c => c.completedLessons > 0 && c.completedLessons < c.totalLessons)
-  const recentCourses = courses.slice(0, 3)
+  const recentCourses = courses.slice(0, 4)
 
   return (
     <div style={{ minHeight: '100vh', background: '#f8fafc' }}>

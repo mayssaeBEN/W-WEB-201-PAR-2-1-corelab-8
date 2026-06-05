@@ -8,6 +8,7 @@ export default function FirstLoginPage() {
   const navigate = useNavigate()
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -44,7 +45,10 @@ export default function FirstLoginPage() {
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label className="form-label small fw-semibold text-muted">Nouveau mot de passe</label>
-                  <input id="pwd" type="password" className="form-control rounded-3" placeholder="Minimum 8 caractères" value={password} onChange={e => setPassword(e.target.value)} required autoFocus />
+                  <div className="input-group">
+                    <input id="pwd" type={showPassword ? 'text' : 'password'} className="form-control rounded-start-3" placeholder="Minimum 8 caractères" value={password} onChange={e => setPassword(e.target.value)} required autoFocus />
+                    <button type="button" className="btn btn-outline-secondary rounded-end-3" onClick={() => setShowPassword(p => !p)} tabIndex={-1}>{showPassword ? '🙈' : '👁'}</button>
+                  </div>
                 </div>
                 <div className="mb-4">
                   <label className="form-label small fw-semibold text-muted">Confirmer le mot de passe</label>

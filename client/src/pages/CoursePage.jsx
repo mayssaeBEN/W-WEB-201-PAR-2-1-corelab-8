@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { fetchCourse, getQuizResult } from '../services/api'
 import Navbar from '../components/Navbar'
 import LessonItem from '../components/LessonItem'
+import Footer from '../components/Footer'
 import ProgressBar from '../components/ProgressBar'
 
 export default function CoursePage() {
@@ -136,5 +137,6 @@ export default function CoursePage() {
         </div>
       </div>
     </div>
+    <Footer />
   )
 }

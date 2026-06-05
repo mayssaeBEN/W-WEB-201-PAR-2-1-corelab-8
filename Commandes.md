@@ -1,5 +1,20 @@
 # Commandes d'installation — Corelab LMS
 
+## Démarrage rapide (TL;DR)
+
+```bash
+# Avec Docker (recommandé)
+docker-compose up --build
+
+# Sans Docker
+cd server && npm install && npm run seed && npm run dev
+cd client && npm install && npm run dev
+```
+
+Comptes démo : `etudiant@basketball.fr / basket123` · `admin@basketball.fr / admin123`
+
+---
+
 Ce fichier regroupe les commandes utiles pour installer et lancer le projet **Corelab LMS** sur **macOS** et **Windows**.
 
 Le projet utilise la stack **MERN** :

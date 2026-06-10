@@ -6,6 +6,7 @@ const lessonSchema = new mongoose.Schema({
   content: { type: String, default: '' },
   order: { type: Number, required: true, default: 1 },
   availableAt: { type: Date, default: Date.now },
+  notified: { type: Boolean, default: false },
 }, { timestamps: true })
 
 export default mongoose.model('Lesson', lessonSchema)

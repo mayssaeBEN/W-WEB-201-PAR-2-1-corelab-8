@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wireframe · 06 Leçon</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="wireframe.css" />
+</head>
+<body class="wf-body">
+  <div class="wf-topbar">
+    <a href="05-detail-cours.html">← Précédent</a>
+    <span>Page 06 — Leçon (HTML) + 06b Leçon verrouillée</span>
+    <a href="07-quiz.html">Suivant →</a>
+  </div>
+  <div class="wf-page">
+    <div class="wf-navbar">
+      <div class="brand">🏀 BASKETLEARN</div>
+      <a class="nav-link active" href="#">📚 Cours</a>
+      <div class="ms-auto"><span style="font-size:0.8rem;color:#ccc;">👋 Jordan Martin</span><div class="wf-btn-sm">DÉCONNEXION</div></div>
+    </div>
+    <div class="wf-main">
+      <div class="wf-btn-outline mb-3" style="display:inline-block;font-size:0.8rem;padding:5px 14px;">← RETOUR AU COURS</div>
+
+      <!-- En-tête leçon -->
+      <div class="wf-card mb-4">
+        <div class="wf-hero" style="padding:20px 24px;">
+          <div style="font-size:0.75rem;color:#aaa;margin-bottom:4px;">📖 LEÇON</div>
+          <div style="font-size:1.3rem;font-weight:bold;">Le crossover et ses variantes</div>
+        </div>
+
+        <!-- Contenu HTML rendu -->
+        <div class="p-4">
+          <div class="wf-label mb-2">CONTENU HTML RENDU (dangerouslySetInnerHTML)</div>
+          <div style="border:1px dashed #aaa;padding:20px;background:#fafafa;">
+            <div class="wf-block mb-3" style="font-size:1rem;font-weight:bold;background:#ddd;">↔️ Le Crossover</div>
+            <div class="wf-block mb-2" style="background:#e8e8e8;">Le crossover est le changement de main le plus basique...</div>
+            <div class="wf-block mb-3" style="font-size:0.85rem;font-weight:bold;background:#ddd;">Technique</div>
+            <div class="wf-block mb-1" style="background:#e8e8e8; font-size:0.8rem;">1. Dribble de la main droite, penche le corps...</div>
+            <div class="wf-block mb-1" style="background:#e8e8e8; font-size:0.8rem;">2. Croise rapidement le ballon devant toi...</div>
+            <div class="wf-block mb-3" style="background:#e8e8e8; font-size:0.8rem;">3. Accélère immédiatement dans la direction...</div>
+            <div class="wf-block" style="background:#cce5ff;border:1px solid #99caff;font-size:0.8rem;">💡 Conseil : La clé d'un bon crossover est la feinte avant le geste...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bouton compléter -->
+      <div class="wf-card p-4 text-center">
+        <div style="color:#888;margin-bottom:12px;font-size:0.85rem;">Tu as terminé cette leçon ?</div>
+        <div class="wf-btn" style="display:inline-block;">✅ MARQUER COMME COMPLÉTÉE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leçon verrouillée -->
+  <div style="max-width:1100px;margin:24px auto 0;">
+    <div class="wf-label mb-2" style="text-align:center;">— VARIANTE : LEÇON VERROUILLÉE (date future) —</div>
+  </div>
+  <div class="wf-page" style="margin-top:12px;">
+    <div class="wf-navbar">
+      <div class="brand">🏀 BASKETLEARN</div>
+      <div class="ms-auto"><span style="font-size:0.8rem;color:#ccc;">👋 Jordan Martin</span></div>
+    </div>
+    <div class="wf-main">
+      <div class="wf-btn-outline mb-4" style="display:inline-block;font-size:0.8rem;padding:5px 14px;">← RETOUR</div>
+      <div class="wf-card p-5 text-center">
+        <div style="font-size:4rem;margin-bottom:16px;">🔒</div>
+        <div style="font-size:1.2rem;font-weight:bold;margin-bottom:8px;">Dribble en situation de match</div>
+        <div style="color:#888;margin-bottom:6px;">Cette leçon n'est pas encore disponible.</div>
+        <div style="color:#555;margin-bottom:20px;">Elle sera accessible le <strong>1 juillet 2026</strong>.</div>
+        <div class="wf-block p-3 text-start mb-4" style="background:#d0e8ff;border:1px solid #99c4f0;">
+          <strong>💡 Pourquoi cette leçon est-elle verrouillée ?</strong><br />
+          <small>Ton enseignant a programmé une date de disponibilité pour structurer ton parcours progressivement.</small>
+        </div>
+        <div class="wf-btn-outline" style="display:inline-block;">RETOUR AU COURS</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

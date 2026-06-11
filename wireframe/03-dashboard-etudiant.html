@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wireframe · 03 Dashboard Étudiant</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="wireframe.css" />
+</head>
+<body class="wf-body">
+  <div class="wf-topbar">
+    <a href="02-first-login.html">← Précédent</a>
+    <span>Page 03 — Dashboard Étudiant</span>
+    <a href="04-liste-cours.html">Suivant →</a>
+  </div>
+
+  <div class="wf-page">
+    <!-- Navbar -->
+    <div class="wf-navbar">
+      <div class="brand">🏀 BASKETLEARN</div>
+      <a class="nav-link active" href="#">🏠 Tableau de bord</a>
+      <a class="nav-link" href="#">📚 Cours</a>
+      <div class="ms-auto">
+        <span style="font-size:0.8rem; color:#ccc;">👋 Jordan Martin</span>
+        <div class="wf-btn-sm">DÉCONNEXION</div>
+      </div>
+    </div>
+
+    <!-- Notification banner -->
+    <div style="background:#ffe8cc; border-bottom:2px solid #aaa; padding:10px 20px; display:flex; align-items:center; gap:12px;">
+      <span>🔔</span>
+      <span style="font-size:0.82rem;">Nouvelle leçon disponible : <strong>"Le crossover"</strong> dans Techniques de Dribble (depuis le 1 juin 2026)</span>
+      <div class="wf-btn-sm ms-auto">VOIR</div>
+      <span style="cursor:pointer; color:#888;">✕</span>
+    </div>
+
+    <div class="wf-main">
+      <!-- Hero banner -->
+      <div class="wf-hero mb-4" style="border-radius:0;">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <div class="wf-label" style="color:#aaa;">Message de bienvenue</div>
+            <div style="font-size:1.3rem; font-weight:bold;">Bonjour, Jordan ! 👋</div>
+            <div style="color:#aaa; font-size:0.85rem; margin-top:4px;">Continue comme ça ! Tu es à 45% de ta progression.</div>
+          </div>
+          <div style="font-size:4rem; opacity:0.4;">🏀</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+          <div class="wf-card p-3 text-center">
+            <div>📚</div>
+            <div style="font-size:1.8rem; font-weight:bold;">5</div>
+            <div class="wf-label">Cours disponibles</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="wf-card p-3 text-center">
+            <div>✅</div>
+            <div style="font-size:1.8rem; font-weight:bold;">7</div>
+            <div class="wf-label">Leçons complétées</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="wf-card p-3 text-center">
+            <div>🎯</div>
+            <div style="font-size:1.8rem; font-weight:bold;">45%</div>
+            <div class="wf-label">Progression globale</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="wf-card p-3 text-center">
+            <div>🏃</div>
+            <div style="font-size:1.8rem; font-weight:bold;">3</div>
+            <div class="wf-label">Cours en cours</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress bar globale -->
+      <div class="wf-card p-3 mb-4">
+        <div class="wf-label mb-2">📊 Progression générale</div>
+        <div class="d-flex justify-content-between mb-1">
+          <small style="color:#888;">Toutes leçons confondues</small>
+          <small style="font-weight:bold;">45%</small>
+        </div>
+        <div class="wf-progress"><div class="wf-progress-bar" style="width:45%"></div></div>
+        <small style="color:#888;">7 / 22 complétées</small>
+      </div>
+
+      <div class="row g-4">
+        <!-- Accès rapide -->
+        <div class="col-12 col-lg-4">
+          <div class="wf-card h-100">
+            <div class="wf-card-header">⚡ Accès rapide</div>
+            <div class="p-3">
+              <div class="wf-label mb-2">Continuer</div>
+              <div class="wf-block p-2 mb-2 d-flex align-items-center gap-2" style="cursor:pointer;">
+                <span>📋</span>
+                <div class="flex-grow-1">
+                  <div style="font-size:0.8rem;font-weight:bold;">Les Règles du Basketball</div>
+                  <div class="wf-progress mt-1"><div class="wf-progress-bar" style="width:75%"></div></div>
+                </div>
+              </div>
+              <div class="wf-block p-2 mb-3 d-flex align-items-center gap-2" style="cursor:pointer;">
+                <span>🏀</span>
+                <div class="flex-grow-1">
+                  <div style="font-size:0.8rem;font-weight:bold;">Techniques de Dribble</div>
+                  <div class="wf-progress mt-1"><div class="wf-progress-bar" style="width:40%"></div></div>
+                </div>
+              </div>
+              <hr class="wf-divider" />
+              <div class="wf-label mb-2">Quiz disponibles</div>
+              <div class="wf-block p-2 mb-2" style="cursor:pointer; font-size:0.8rem;">🧠 Règles du basketball</div>
+              <div class="wf-block p-2" style="cursor:pointer; font-size:0.8rem;">🧠 Techniques de dribble</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mes cours -->
+        <div class="col-12 col-lg-8">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <div style="font-weight:bold;">📚 Tes cours</div>
+            <div class="wf-btn-sm">VOIR TOUS</div>
+          </div>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6">
+              <div class="wf-card">
+                <div class="wf-block" style="height:60px; font-size:1.8rem; display:flex; align-items:center; justify-content:center;">📋</div>
+                <div class="p-3">
+                  <div style="font-weight:bold; font-size:0.9rem;">Les Règles du Basketball</div>
+                  <div style="font-size:0.75rem; color:#888; margin:4px 0 8px;">Maîtrise les règles fondamentales...</div>
+                  <div class="wf-progress mb-1"><div class="wf-progress-bar" style="width:75%"></div></div>
+                  <div style="font-size:0.7rem; color:#888;">3/4 leçons</div>
+                  <div class="wf-btn w-100 text-center mt-2" style="font-size:0.75rem; padding:6px;">ACCÉDER →</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="wf-card">
+                <div class="wf-block" style="height:60px; font-size:1.8rem; display:flex; align-items:center; justify-content:center;">🏀</div>
+                <div class="p-3">
+                  <div style="font-weight:bold; font-size:0.9rem;">Techniques de Dribble</div>
+                  <div style="font-size:0.75rem; color:#888; margin:4px 0 8px;">Crossover, between legs...</div>
+                  <div class="wf-progress mb-1"><div class="wf-progress-bar" style="width:40%"></div></div>
+                  <div style="font-size:0.7rem; color:#888;">2/5 leçons</div>
+                  <div class="wf-btn w-100 text-center mt-2" style="font-size:0.75rem; padding:6px;">ACCÉDER →</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-annotations" style="max-width:1100px; margin:16px auto 0;">
+    <div class="wf-annotation">🔔 Bandeau notification : affiché si leçon disponible depuis ≤ 7 jours, dismissible</div>
+    <div class="wf-annotation">📊 Stats calculées côté serveur via GET /api/courses avec progression</div>
+    <div class="wf-annotation">🏃 "Cours en cours" = completedLessons > 0 et < totalLessons</div>
+  </div>
+</body>
+</html>

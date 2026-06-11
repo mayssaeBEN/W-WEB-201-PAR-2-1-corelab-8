@@ -136,7 +136,7 @@ export default function CoursePage() {
 
         </div>
       </div>
+      <Footer />
     </div>
-    <Footer />
   )
 }

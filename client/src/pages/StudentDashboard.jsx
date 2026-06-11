@@ -174,7 +174,7 @@ export default function StudentDashboard() {
         </div>
 
       </div>
+      <Footer />
     </div>
-    <Footer />
   )
 }

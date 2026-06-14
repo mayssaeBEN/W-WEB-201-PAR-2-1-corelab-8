@@ -721,8 +721,14 @@ export async function fetchCourse(courseId) {
 
 export async function fetchLesson(lessonId) {
   try {
-    const data = await apiFetch(`/lessons/${lessonId}`)
-    if (data) return data
+    const res = await fetch(`${BASE_URL}/lessons/${lessonId}`, {
+      headers: { 'Content-Type': 'application/json', ...authHeaders() },
+    })
+    const data = await res.json()
+    if (res.ok) return data
+    // Leçon pas encore disponible : on renvoie titre + date de disponibilité
+    // pour que la page leçon affiche l'écran "verrouillé".
+    if (res.status === 403) return { ...data, locked: true }
   } catch {}
   for (const lessons of Object.values(MOCK_LESSONS)) {
     const found = lessons.find(l => l._id === lessonId)

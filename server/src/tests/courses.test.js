@@ -14,8 +14,10 @@ function tokenFor(user) {
 
 describe('GET /api/courses', () => {
   it('retourne la liste des cours pour un étudiant authentifié', async () => {
+    const course = await createTestCourse()
     const student = await createTestUser('student')
-    await createTestCourse()
+    student.accessibleCourses = [course._id]
+    await student.save()
     const token = tokenFor(student)
     const res = await request(app).get('/api/courses').set('Authorization', `Bearer ${token}`)
     expect(res.status).toBe(200)
@@ -32,8 +34,10 @@ describe('GET /api/courses', () => {
 
 describe('GET /api/courses/:id', () => {
   it('retourne le détail d\'un cours avec ses leçons', async () => {
-    const student = await createTestUser('student')
     const course = await createTestCourse()
+    const student = await createTestUser('student')
+    student.accessibleCourses = [course._id]
+    await student.save()
     await createTestLesson(course._id)
     const token = tokenFor(student)
     const res = await request(app).get(`/api/courses/${course._id}`).set('Authorization', `Bearer ${token}`)

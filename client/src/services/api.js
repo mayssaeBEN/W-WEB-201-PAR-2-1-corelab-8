@@ -22,14 +22,14 @@ async function apiFetch(path, options = {}) {
   }
 }
 
-// ── Mock data ──────────────────────────────────────────────────────────────────
+// Mock data
 
 const MOCK_COURSES = [
   {
     _id: 'c1',
     title: 'Les Règles du Basketball',
     description: 'Maîtrise les règles fondamentales du basketball : terrain, joueurs, fautes, temps de jeu et violations.',
-    icon: '📋',
+    icon: '',
     color: '#e74c3c',
     lessonsCount: 4,
     quizzesCount: 2,
@@ -40,7 +40,7 @@ const MOCK_COURSES = [
     _id: 'c2',
     title: 'Techniques de Dribble',
     description: 'Apprends les techniques essentielles du dribble : crossover, between legs, behind the back et speed dribble.',
-    icon: '🏀',
+    icon: '',
     color: '#e67e22',
     lessonsCount: 5,
     quizzesCount: 2,
@@ -51,7 +51,7 @@ const MOCK_COURSES = [
     _id: 'c3',
     title: 'Techniques de Shooting',
     description: 'Perfectionne ton shoot : forme, footwork, catch-and-shoot, pull-up jumper et tirs à 3 points.',
-    icon: '🎯',
+    icon: '',
     color: '#27ae60',
     lessonsCount: 4,
     quizzesCount: 2,
@@ -62,7 +62,7 @@ const MOCK_COURSES = [
     _id: 'c4',
     title: 'Stratégies Défensives',
     description: 'Comprends et applique les principes défensifs : man-to-man, zone defense, press defense et rotations.',
-    icon: '🛡️',
+    icon: '',
     color: '#2980b9',
     lessonsCount: 4,
     quizzesCount: 1,
@@ -73,7 +73,7 @@ const MOCK_COURSES = [
     _id: 'c5',
     title: 'Tactiques et Systèmes de Jeu',
     description: 'Explore les systèmes offensifs et défensifs : pick and roll, motion offense, zone offense et fast break.',
-    icon: '🧩',
+    icon: '',
     color: '#8e44ad',
     lessonsCount: 5,
     quizzesCount: 2,
@@ -92,7 +92,7 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-01-10'),
       completed: true,
       content: `
-<h2>🏀 Le terrain de basketball</h2>
+<h2>Le terrain de basketball</h2>
 <p>Un terrain officiel NBA mesure <strong>28 mètres × 15 mètres</strong>. Il est divisé en deux moitiés symétriques par la ligne médiane.</p>
 <h3>Les zones importantes</h3>
 <ul>
@@ -111,7 +111,7 @@ const MOCK_LESSONS = {
     <tr><td>5</td><td>Pivot (Center)</td><td>Présence dans la raquette, pivot défensif</td></tr>
   </tbody>
 </table>
-<div class="alert alert-info">💡 <strong>À retenir :</strong> Chaque équipe aligne 5 joueurs sur le terrain. Les remplaçants peuvent entrer en jeu à chaque arrêt de jeu.</div>
+<div class="alert alert-info"><strong>À retenir :</strong> Chaque équipe aligne 5 joueurs sur le terrain. Les remplaçants peuvent entrer en jeu à chaque arrêt de jeu.</div>
       `,
     },
     {
@@ -122,17 +122,17 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-01-17'),
       completed: true,
       content: `
-<h2>⏱️ Structure d'un match</h2>
+<h2>Structure d'un match</h2>
 <p>Un match de basketball officiel FIBA se joue en <strong>4 quarts-temps de 10 minutes</strong> (12 min en NBA).</p>
 <h3>Valeur des paniers</h3>
 <ul>
-  <li>🏀 <strong>Panier en jeu sous la ligne des 3 pts</strong> : 2 points</li>
-  <li>🎯 <strong>Panier au-delà de la ligne des 3 pts</strong> : 3 points</li>
-  <li>✅ <strong>Lancer-franc réussi</strong> : 1 point</li>
+  <li><strong>Panier en jeu sous la ligne des 3 pts</strong> : 2 points</li>
+  <li><strong>Panier au-delà de la ligne des 3 pts</strong> : 3 points</li>
+  <li><strong>Lancer-franc réussi</strong> : 1 point</li>
 </ul>
 <h3>Les temps morts</h3>
 <p>Chaque équipe dispose de <strong>2 temps morts par mi-temps</strong> (FIBA) ou 7 par match (NBA). Un temps mort dure 60 secondes.</p>
-<div class="alert alert-warning">⚠️ <strong>Prolongations :</strong> En cas d'égalité à la fin du temps réglementaire, des prolongations de 5 minutes sont jouées jusqu'à départage des équipes.</div>
+<div class="alert alert-warning"><strong>Prolongations :</strong> En cas d'égalité à la fin du temps réglementaire, des prolongations de 5 minutes sont jouées jusqu'à départage des équipes.</div>
       `,
     },
     {
@@ -143,7 +143,7 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-01-24'),
       completed: true,
       content: `
-<h2>🚫 Violations</h2>
+<h2>Violations</h2>
 <p>Une violation entraîne une remise en jeu adverse, sans lancer-franc.</p>
 <ul>
   <li><strong>Marcher (traveling)</strong> : plus de 2 pas sans dribbler</li>
@@ -152,14 +152,14 @@ const MOCK_LESSONS = {
   <li><strong>8 secondes</strong> : ne pas dépasser la mi-terrain en 8 s</li>
   <li><strong>24 secondes</strong> : ne pas tirer dans les 24 s (possession clock)</li>
 </ul>
-<h2>🟡 Les fautes</h2>
+<h2>Les fautes</h2>
 <p>Un joueur est exclu après <strong>5 fautes personnelles</strong> (6 en NBA).</p>
 <ul>
   <li><strong>Faute personnelle</strong> : contact illégal sur un adversaire</li>
   <li><strong>Faute technique</strong> : comportement antisportif, sans contact physique direct</li>
   <li><strong>Faute flagrante</strong> : contact excessif et délibéré</li>
 </ul>
-<div class="alert alert-danger">🔴 <strong>Bonus :</strong> À partir de la 5e faute d'équipe par quart-temps, chaque faute suivante accorde 2 lancers-francs à l'adversaire.</div>
+<div class="alert alert-danger"><strong>Bonus :</strong> À partir de la 5e faute d'équipe par quart-temps, chaque faute suivante accorde 2 lancers-francs à l'adversaire.</div>
       `,
     },
     {
@@ -181,7 +181,7 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-01-15'),
       completed: true,
       content: `
-<h2>🏀 Les fondamentaux du dribble</h2>
+<h2>Les fondamentaux du dribble</h2>
 <p>Le dribble est la seule façon légale de se déplacer avec le ballon. Maîtriser le dribble est essentiel pour tout joueur.</p>
 <h3>Position de base</h3>
 <ul>
@@ -199,7 +199,7 @@ const MOCK_LESSONS = {
     <tr><td>Dribble en puissance</td><td>Pénétrer et attaquer le panier</td></tr>
   </tbody>
 </table>
-<div class="alert alert-success">✅ <strong>Exercice :</strong> Pratique le dribble dans un miroir pour corriger ta position sans regarder le ballon.</div>
+<div class="alert alert-success"><strong>Exercice :</strong> Pratique le dribble dans un miroir pour corriger ta position sans regarder le ballon.</div>
       `,
     },
     {
@@ -210,7 +210,7 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-02-01'),
       completed: true,
       content: `
-<h2>↔️ Le Crossover</h2>
+<h2>Le Crossover</h2>
 <p>Le crossover est le changement de main le plus basique et le plus efficace pour éliminer un défenseur.</p>
 <h3>Technique</h3>
 <ol>
@@ -224,7 +224,7 @@ const MOCK_LESSONS = {
   <li><strong>Hesitation (hesi)</strong> : marquer un temps d'arrêt pour déséquilibrer le défenseur</li>
   <li><strong>Allen Iverson crossover</strong> : crossover bas et explosif, signature move légendaire</li>
 </ul>
-<div class="alert alert-info">💡 <strong>Conseil :</strong> La clé d'un bon crossover est la <em>feinte</em> avant le geste, pas la vitesse du geste lui-même.</div>
+<div class="alert alert-info"><strong>Conseil :</strong> La clé d'un bon crossover est la <em>feinte</em> avant le geste, pas la vitesse du geste lui-même.</div>
       `,
     },
     {
@@ -235,7 +235,7 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-02-15'),
       completed: false,
       content: `
-<h2>🦵 Between the Legs</h2>
+<h2>Between the Legs</h2>
 <p>Le dribble entre les jambes protège le ballon et change de direction de façon inattendue.</p>
 <h3>Exécution</h3>
 <ol>
@@ -244,9 +244,9 @@ const MOCK_LESSONS = {
   <li>Récupère avec la main opposée</li>
   <li>Accélère dans la nouvelle direction</li>
 </ol>
-<h2>🔄 Behind the Back</h2>
+<h2>Behind the Back</h2>
 <p>Le dribble derrière le dos surprend le défenseur et protège le ballon.</p>
-<div class="alert alert-warning">⚠️ Ces mouvements nécessitent une pratique intensive. Commence lentement, puis augmente la vitesse progressivement.</div>
+<div class="alert alert-warning">Ces mouvements nécessitent une pratique intensive. Commence lentement, puis augmente la vitesse progressivement.</div>
       `,
     },
     {
@@ -277,7 +277,7 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-02-01'),
       completed: true,
       content: `
-<h2>🎯 BEEF : La formule du parfait shooteur</h2>
+<h2>BEEF : La formule du parfait shooteur</h2>
 <p><strong>BEEF</strong> est un acronyme pour mémoriser les 4 éléments clés du shoot :</p>
 <ul>
   <li><strong>B</strong> - Balance (équilibre) : pieds à la largeur des épaules, légèrement vers le panier</li>
@@ -287,7 +287,7 @@ const MOCK_LESSONS = {
 </ul>
 <h3>La main directrice vs la main guide</h3>
 <p>La <strong>main directrice</strong> (dominante) propulse le ballon. La <strong>main guide</strong> soutient le ballon sur le côté et ne participe pas au tir.</p>
-<div class="alert alert-success">✅ <strong>Exercice HORSE</strong> : Joue au HORSE avec un partenaire pour travailler des tirs variés dans un contexte ludique.</div>
+<div class="alert alert-success"><strong>Exercice HORSE</strong> : Joue au HORSE avec un partenaire pour travailler des tirs variés dans un contexte ludique.</div>
       `,
     },
     {
@@ -298,7 +298,7 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-02-20'),
       completed: false,
       content: `
-<h2>🏃 Catch-and-Shoot</h2>
+<h2>Catch-and-Shoot</h2>
 <p>Le catch-and-shoot est l'acte de recevoir la passe et tirer immédiatement, sans dribble.</p>
 <h3>Clés du catch-and-shoot</h3>
 <ul>
@@ -307,9 +307,9 @@ const MOCK_LESSONS = {
   <li>Pivot vers le panier simultanément à la réception</li>
   <li>Shot fake optionnel si le défenseur arrive</li>
 </ul>
-<h2>↕️ Pull-Up Jumper</h2>
+<h2>Pull-Up Jumper</h2>
 <p>Le pull-up est un tir pris en sortie de dribble, après un arrêt brusque.</p>
-<div class="alert alert-info">💡 <strong>Stars à étudier :</strong> Stephen Curry (catch-and-shoot), Devin Booker (pull-up jumper).</div>
+<div class="alert alert-info"><strong>Stars à étudier :</strong> Stephen Curry (catch-and-shoot), Devin Booker (pull-up jumper).</div>
       `,
     },
     {
@@ -340,7 +340,7 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-03-01'),
       completed: false,
       content: `
-<h2>🛡️ L'état d'esprit défensif</h2>
+<h2>L'état d'esprit défensif</h2>
 <p>La défense gagne les championnats. Un bon défenseur doit avoir :</p>
 <ul>
   <li><strong>Position athlétique</strong> : pieds écartés, genoux fléchis, mains actives</li>
@@ -350,7 +350,7 @@ const MOCK_LESSONS = {
 </ul>
 <h3>Man-to-man defense</h3>
 <p>Chaque défenseur est responsable d'un attaquant spécifique.</p>
-<div class="alert alert-primary">🏆 <strong>Règle d'or :</strong> Toujours voir son adversaire ET le ballon simultanément.</div>
+<div class="alert alert-primary"><strong>Règle d'or :</strong> Toujours voir son adversaire ET le ballon simultanément.</div>
       `,
     },
     {
@@ -390,7 +390,7 @@ const MOCK_LESSONS = {
       availableAt: fmt('2026-04-01'),
       completed: false,
       content: `
-<h2>🤝 Pick and Roll</h2>
+<h2>Pick and Roll</h2>
 <p>Le pick and roll (ou écran-remontée) est l'action offensive la plus courante en basketball moderne.</p>
 <h3>Comment ça fonctionne</h3>
 <ol>
@@ -399,7 +399,7 @@ const MOCK_LESSONS = {
   <li><strong>Poseur</strong> : "roule" vers le panier après l'écran</li>
   <li><strong>Meneur</strong> : passe au poseur si son défenseur est bloqué, ou attaque si dégagé</li>
 </ol>
-<div class="alert alert-success">🌟 <strong>Duo légendaire :</strong> John Stockton et Karl Malone ont révolutionné le pick and roll dans les années 90.</div>
+<div class="alert alert-success"><strong>Duo légendaire :</strong> John Stockton et Karl Malone ont révolutionné le pick and roll dans les années 90.</div>
       `,
     },
     {
@@ -681,7 +681,7 @@ const MOCK_QUIZZES = {
   ],
 }
 
-// ── Progression localStorage ───────────────────────────────────────────────────
+// Progression localStorage
 
 const PROGRESS_KEY = 'basketball_lms_progress'
 
@@ -694,7 +694,7 @@ function saveProgress(progress) {
   localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress))
 }
 
-// ── Public API ─────────────────────────────────────────────────────────────────
+// Public API
 
 export async function fetchCourses() {
   try {

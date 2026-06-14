@@ -38,7 +38,7 @@ export default function LessonItem({ lesson, index }) {
           fontSize: '0.9rem',
         }}
       >
-        {completed ? '✓' : available ? index + 1 : '🔒'}
+        {completed ? 'OK' : available ? index + 1 : '-'}
       </div>
 
       <div className="flex-grow-1">
@@ -56,7 +56,7 @@ export default function LessonItem({ lesson, index }) {
       </div>
 
       {available && (
-        <span className="text-muted" style={{ fontSize: '1.1rem' }}>›</span>
+        <span className="text-muted" style={{ fontSize: '1.1rem' }}>&gt;</span>
       )}
     </div>
   )

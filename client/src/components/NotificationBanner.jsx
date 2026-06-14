@@ -49,7 +49,6 @@ export default function NotificationBanner() {
       {notifications.map(n => (
         <div key={n.id} className="d-flex align-items-center gap-3 p-3 rounded-3 mb-2"
           style={{ background: '#fff7ed', border: '1px solid #fed7aa' }}>
-          <span style={{ fontSize: '1.3rem' }}>🔔</span>
           <div className="flex-grow-1">
             <span className="fw-semibold small">Nouvelle leçon disponible : </span>
             <span className="small">"{n.title}" dans <em>{n.courseTitle}</em> (depuis le {formatDate(n.date)})</span>
@@ -59,7 +58,7 @@ export default function NotificationBanner() {
             onClick={() => { dismiss(n.id); setNotifications(p => p.filter(x => x.id !== n.id)); navigate(`/lessons/${n.lessonId}`) }}>
             Voir
           </button>
-          <button className="btn btn-sm btn-link text-muted p-0" onClick={() => { dismiss(n.id); setNotifications(p => p.filter(x => x.id !== n.id)) }}>✕</button>
+          <button className="btn btn-sm btn-link text-muted p-0" onClick={() => { dismiss(n.id); setNotifications(p => p.filter(x => x.id !== n.id)) }}>Fermer</button>
         </div>
       ))}
     </div>

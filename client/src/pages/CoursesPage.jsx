@@ -22,19 +22,19 @@ export default function CoursesPage() {
   )
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc', display: 'flex', flexDirection: 'column' }}>
+    <div className="d-flex flex-column min-vh-100 bg-light">
       <Navbar />
-      <div className="container-fluid px-4 py-4 flex-grow-1" style={{ maxWidth: 1200 }}>
-        <div className="d-flex align-items-start justify-content-between flex-wrap gap-3 mb-4">
+      <div className="container py-4 flex-grow-1">
+        <div className="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
           <div>
-            <h1 className="fw-bold mb-1" style={{ fontSize: '1.8rem' }}>📚 Catalogue des cours</h1>
-            <p className="text-muted mb-0">Tous tes cours de basketball disponibles sur la plateforme.</p>
+            <h1 className="h4 fw-bold mb-1">Catalogue des cours</h1>
+            <p className="text-muted mb-0">Tous les cours disponibles.</p>
           </div>
           <input
             type="search"
-            className="form-control rounded-pill"
-            placeholder="🔍 Rechercher un cours..."
+            className="form-control"
             style={{ maxWidth: 260 }}
+            placeholder="Rechercher un cours..."
             value={search}
             onChange={e => setSearch(e.target.value)}
           />
@@ -42,13 +42,12 @@ export default function CoursesPage() {
 
         {loading ? (
           <div className="text-center py-5">
-            <div className="spinner-border text-warning" role="status" />
+            <div className="spinner-border text-primary" role="status" />
             <p className="text-muted mt-3">Chargement des cours...</p>
           </div>
         ) : filtered.length === 0 ? (
           <div className="text-center py-5">
-            <div style={{ fontSize: '3rem' }}>🔍</div>
-            <p className="text-muted mt-2">Aucun cours ne correspond à ta recherche.</p>
+            <p className="text-muted">Aucun cours ne correspond à ta recherche.</p>
           </div>
         ) : (
           <div className="row g-4">

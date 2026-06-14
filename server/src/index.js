@@ -39,9 +39,9 @@ app.use((err, req, res, next) => {
 
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => {
+  .then(async () => {
     console.log('✅ MongoDB connecté :', process.env.MONGO_URI)
-    startScheduler(),
+    await startScheduler()
     app.listen(PORT, () => console.log(`🚀 Serveur lancé sur http://localhost:${PORT}`))
   })
   .catch(err => {

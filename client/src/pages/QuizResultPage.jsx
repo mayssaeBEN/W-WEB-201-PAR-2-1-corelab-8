@@ -41,7 +41,7 @@ export default function QuizResultPage() {
 
         {/* Feedback par question */}
         <div className="card border-0 shadow-sm rounded-4 p-4 mb-4">
-          <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>📋 Détail des réponses</h2>
+          <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Détail des réponses</h2>
           {quiz.questions.map((q, i) => {
             const fb = feedback.find(f => f.questionId === q._id)
             return (
@@ -54,7 +54,9 @@ export default function QuizResultPage() {
                 }}
               >
                 <div className="d-flex align-items-start gap-2 mb-2">
-                  <span style={{ fontSize: '1.1rem' }}>{fb?.correct ? '✅' : '❌'}</span>
+                  <span className={`badge ${fb?.correct ? 'bg-success' : 'bg-danger'}`}>
+                    {fb?.correct ? 'Correct' : 'Incorrect'}
+                  </span>
                   <p className="fw-semibold mb-0 small">{i + 1}. {q.text}</p>
                 </div>
                 {!fb?.correct && (
@@ -75,19 +77,19 @@ export default function QuizResultPage() {
             style={{ background: 'linear-gradient(135deg, #f97316, #ef4444)', border: 'none' }}
             onClick={() => navigate(`/quiz/${quizId}`)}
           >
-            🔄 Refaire le quiz
+            Refaire le quiz
           </button>
           <button
             className="btn btn-outline-secondary rounded-pill px-4"
             onClick={() => navigate(-2)}
           >
-            ← Retour au cours
+            Retour au cours
           </button>
           <button
             className="btn btn-outline-primary rounded-pill px-4"
             onClick={() => navigate('/dashboard')}
           >
-            🏠 Tableau de bord
+            Tableau de bord
           </button>
         </div>
 

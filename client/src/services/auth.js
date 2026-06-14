@@ -26,9 +26,9 @@ export async function login(email, password) {
       throw new Error(error || 'Email ou mot de passe incorrect')
     }
   } catch (err) {
-    // Si ce n'est pas un 401/400 mais une erreur réseau → fallback mock
+    // Si ce n'est pas un 401/400 mais une erreur réseau, fallback mock
     if (err.message !== 'Email ou mot de passe incorrect' && !err.message.includes('invalide')) {
-      console.warn('API hors ligne — utilisation du mode hors ligne')
+      console.warn('API hors ligne - utilisation du mode hors ligne')
     } else {
       throw err
     }

@@ -23,6 +23,7 @@ router.get('/:id', authenticate, async (req, res) => {
     if (!isAdmin && !isLessonAvailable(lesson)) {
       return res.status(403).json({
         error: 'Cette leçon n’est pas encore disponible',
+        title: lesson.title,
         availableAt: lesson.availableAt,
       })
     }

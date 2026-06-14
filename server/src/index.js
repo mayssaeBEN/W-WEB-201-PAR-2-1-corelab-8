@@ -11,6 +11,7 @@ import adminRoutes from './routes/admin.js'
 import statsRoutes from './routes/stats.js'
 import notificationsRoutes from './routes/notifications.js'
 import progressRoutes from './routes/progress.js'
+import { startScheduler } from './utils/scheduler.js'
 
 const app = express()
 const PORT = process.env.PORT || 4242
@@ -38,8 +39,9 @@ app.use((err, req, res, next) => {
 
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => {
+  .then(async () => {
     console.log('✅ MongoDB connecté :', process.env.MONGO_URI)
+    await startScheduler()
     app.listen(PORT, () => console.log(`🚀 Serveur lancé sur http://localhost:${PORT}`))
   })
   .catch(err => {

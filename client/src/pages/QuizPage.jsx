@@ -74,7 +74,7 @@ export default function QuizPage() {
       <div className="container-fluid px-4 py-4" style={{ maxWidth: 800 }}>
 
         <button className="btn btn-sm btn-outline-secondary rounded-pill mb-3" onClick={() => navigate(-1)}>
-          ← Retour
+          Retour
         </button>
 
         {/* Quiz header */}
@@ -83,7 +83,6 @@ export default function QuizPage() {
           style={{ background: 'linear-gradient(135deg, #f97316, #ef4444)' }}
         >
           <div className="d-flex align-items-center gap-3">
-            <span style={{ fontSize: '2.5rem' }}>🧠</span>
             <div>
               <h1 className="fw-bold mb-1" style={{ fontSize: '1.5rem' }}>{quiz.title}</h1>
               <div className="d-flex gap-3">
@@ -121,7 +120,7 @@ export default function QuizPage() {
 
         {error && (
           <div className="alert alert-warning rounded-3 mb-3" role="alert">
-            ⚠️ {error}
+            {error}
           </div>
         )}
 

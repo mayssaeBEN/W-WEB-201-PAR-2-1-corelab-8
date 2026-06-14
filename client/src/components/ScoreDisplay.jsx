@@ -5,10 +5,6 @@ export default function ScoreDisplay({ score, passed, passingScore, correct, tot
 
   return (
     <div className="text-center p-4 rounded-4" style={{ background: bg, border: `2px solid ${border}` }}>
-      <div style={{ fontSize: '4rem', marginBottom: '0.5rem' }}>
-        {passed ? '🏆' : '💪'}
-      </div>
-
       <div style={{ fontSize: '4rem', fontWeight: 800, color, lineHeight: 1 }}>
         {score}%
       </div>

@@ -47,7 +47,7 @@ export default function CoursePage() {
     )
   }
 
-  const { title, description, icon, color, lessons = [], quizzes = [], completedLessons, totalLessons } = course
+  const { title, description, color, lessons = [], quizzes = [], completedLessons, totalLessons } = course
 
   return (
     <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
@@ -60,7 +60,7 @@ export default function CoursePage() {
           className="btn btn-sm btn-outline-secondary rounded-pill mb-3"
           onClick={() => navigate('/courses')}
         >
-          ← Retour aux cours
+          Retour aux cours
         </button>
 
         {/* Course header */}
@@ -68,8 +68,7 @@ export default function CoursePage() {
           className="rounded-4 p-4 mb-4 text-white"
           style={{ background: `linear-gradient(135deg, ${color}cc, ${color})` }}
         >
-          <div className="d-flex align-items-center gap-3 mb-2">
-            <span style={{ fontSize: '3rem' }}>{icon}</span>
+          <div className="mb-2">
             <div>
               <h1 className="fw-bold mb-1" style={{ fontSize: '1.6rem' }}>{title}</h1>
               <p className="mb-0" style={{ opacity: 0.85 }}>{description}</p>
@@ -85,7 +84,7 @@ export default function CoursePage() {
           {/* Lessons */}
           <div className="col-12 col-md-7">
             <div className="card border-0 shadow-sm rounded-4 p-4">
-              <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>📖 Leçons</h2>
+              <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Leçons</h2>
               {lessons.length === 0 ? (
                 <p className="text-muted">Aucune leçon disponible.</p>
               ) : (
@@ -99,7 +98,7 @@ export default function CoursePage() {
           {/* Quizzes */}
           <div className="col-12 col-md-5">
             <div className="card border-0 shadow-sm rounded-4 p-4">
-              <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>✅ Quiz</h2>
+              <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Quiz</h2>
               {quizzes.length === 0 ? (
                 <p className="text-muted">Aucun quiz disponible.</p>
               ) : (
@@ -116,7 +115,7 @@ export default function CoursePage() {
                         <small className="text-muted">Seuil : {quiz.passingScore}%</small>
                         {result && (
                           <span className={`badge rounded-pill ${result.passed ? 'bg-success' : 'bg-danger'}`}>
-                            {result.score}% {result.passed ? '✓' : '✗'}
+                            {result.score}% · {result.passed ? 'Réussi' : 'Échoué'}
                           </span>
                         )}
                       </div>
@@ -136,7 +135,7 @@ export default function CoursePage() {
 
         </div>
       </div>
+      <Footer />
     </div>
-    <Footer />
   )
 }

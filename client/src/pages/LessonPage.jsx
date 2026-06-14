@@ -58,17 +58,16 @@ export default function LessonPage() {
         <Navbar />
         <div className="container py-5" style={{ maxWidth: 700 }}>
           <button className="btn btn-sm btn-outline-secondary rounded-pill mb-4" onClick={() => navigate(-1)}>
-            ← Retour
+            Retour
           </button>
           <div className="card border-0 shadow-sm rounded-4 text-center p-5">
-            <div style={{ fontSize: '5rem', marginBottom: '1rem' }}>🔒</div>
             <h2 className="fw-bold mb-2">{lesson.title}</h2>
             <p className="text-muted mb-1">Cette leçon n'est pas encore disponible.</p>
             <p className="text-muted">
               Elle sera accessible le <strong>{formatDate(lesson.availableAt)}</strong>.
             </p>
             <div className="alert alert-info rounded-3 mt-3 text-start">
-              <strong>💡 Pourquoi cette leçon est-elle verrouillée ?</strong><br />
+              <strong>Pourquoi cette leçon est-elle verrouillée ?</strong><br />
               Ton enseignant a programmé une date de disponibilité pour cette leçon afin de structurer ton parcours d'apprentissage progressivement.
             </div>
             <button className="btn btn-outline-primary rounded-pill mt-2" onClick={() => navigate(-1)}>
@@ -87,7 +86,7 @@ export default function LessonPage() {
       <div className="container-fluid px-4 py-4" style={{ maxWidth: 860 }}>
 
         <button className="btn btn-sm btn-outline-secondary rounded-pill mb-3" onClick={() => navigate(-1)}>
-          ← Retour au cours
+          Retour au cours
         </button>
 
         <div className="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
@@ -95,12 +94,11 @@ export default function LessonPage() {
             className="p-4"
             style={{ background: 'linear-gradient(135deg, #1a1a2e, #0f3460)', color: 'white' }}
           >
-            <div className="d-flex align-items-center gap-2 mb-1">
-              <span>📖</span>
+            <div className="mb-1">
               <small className="text-white-50">Leçon</small>
             </div>
             <h1 className="fw-bold mb-1" style={{ fontSize: '1.5rem' }}>{lesson.title}</h1>
-            <small style={{ opacity: 0.7 }}>⏱ {estimateReadTime(lesson.content)} min de lecture</small>
+            <small style={{ opacity: 0.7 }}>{estimateReadTime(lesson.content)} min de lecture</small>
           </div>
 
           <div className="card-body p-4">
@@ -116,7 +114,6 @@ export default function LessonPage() {
         <div className="card border-0 shadow-sm rounded-4 p-4 text-center">
           {markedDone ? (
             <div className="text-success">
-              <div style={{ fontSize: '2.5rem' }}>🎉</div>
               <p className="fw-bold mt-2 mb-3">Leçon marquée comme complétée !</p>
               <button className="btn btn-success rounded-pill px-4" onClick={() => navigate(-1)}>
                 Retour au cours
@@ -134,7 +131,7 @@ export default function LessonPage() {
                 {marking ? (
                   <><span className="spinner-border spinner-border-sm me-2" /> Enregistrement...</>
                 ) : (
-                  '✅ Marquer comme complétée'
+                  'Marquer comme complétée'
                 )}
               </button>
             </>

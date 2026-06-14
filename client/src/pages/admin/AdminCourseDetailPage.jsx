@@ -56,7 +56,7 @@ export default function AdminCourseDetailPage() {
       setShowLessonForm(false)
       setEditingLesson(null)
       setLessonForm(EMPTY_LESSON)
-      flash(editingLesson ? 'Leçon modifiée ✅' : 'Leçon créée ✅')
+      flash(editingLesson ? 'Leçon modifiée ' : 'Leçon créée ')
     } catch (err) { setError(err.message) }
     finally { setSavingLesson(false) }
   }
@@ -81,7 +81,7 @@ export default function AdminCourseDetailPage() {
       setShowQuizForm(false)
       setQuizForm({ ...EMPTY_QUIZ })
       setQuizJson('')
-      flash('Quiz créé ✅')
+      flash('Quiz créé ')
     } catch (err) { setError(err.message) }
     finally { setSavingQuiz(false) }
   }
@@ -106,7 +106,7 @@ export default function AdminCourseDetailPage() {
     <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
       <Navbar />
       <div className="container-fluid px-4 py-4" style={{ maxWidth: 1000 }}>
-        <button className="btn btn-sm btn-outline-secondary rounded-pill mb-3" onClick={() => navigate('/admin/courses')}>← Retour aux cours</button>
+        <button className="btn btn-sm btn-outline-secondary rounded-pill mb-3" onClick={() => navigate('/admin/courses')}>Retour aux cours</button>
 
         <div className="rounded-4 p-4 mb-4 text-white" style={{ background: `linear-gradient(135deg, ${course?.color}cc, ${course?.color})` }}>
           <div className="d-flex align-items-center gap-3">
@@ -121,13 +121,13 @@ export default function AdminCourseDetailPage() {
         {success && <div className="alert alert-success rounded-3 py-2 mb-3">{success}</div>}
         {error && <div className="alert alert-danger rounded-3 py-2 mb-3">{error}</div>}
 
-        {/* ── Leçons ── */}
+        {/* Leçons */}
         <div className="card border-0 shadow-sm rounded-4 p-4 mb-4">
           <div className="d-flex align-items-center justify-content-between mb-3">
-            <h2 className="fw-bold mb-0" style={{ fontSize: '1.1rem' }}>📖 Leçons</h2>
+            <h2 className="fw-bold mb-0" style={{ fontSize: '1.1rem' }}>Leçons</h2>
             <button className="btn btn-sm rounded-pill text-white fw-semibold px-3" style={{ background: '#f97316', border: 'none' }}
               onClick={() => { setShowLessonForm(!showLessonForm); setEditingLesson(null); setLessonForm(EMPTY_LESSON) }}>
-              {showLessonForm && !editingLesson ? 'Annuler' : '➕ Ajouter'}
+              {showLessonForm && !editingLesson ? 'Annuler' : 'Ajouter'}
             </button>
           </div>
 
@@ -154,7 +154,7 @@ export default function AdminCourseDetailPage() {
               </div>
               <div className="d-flex gap-2">
                 <button type="submit" className="btn rounded-pill text-white fw-semibold px-4" style={{ background: '#0f3460', border: 'none' }} disabled={savingLesson}>
-                  {savingLesson ? 'Sauvegarde...' : editingLesson ? '💾 Modifier' : '✅ Créer'}
+                  {savingLesson ? 'Sauvegarde...' : editingLesson ? 'Modifier' : 'Créer'}
                 </button>
                 <button type="button" className="btn btn-outline-secondary rounded-pill" onClick={() => { setShowLessonForm(false); setEditingLesson(null) }}>Annuler</button>
               </div>
@@ -169,7 +169,9 @@ export default function AdminCourseDetailPage() {
                 <div className="fw-bold text-muted" style={{ minWidth: 24 }}>{l.order}</div>
                 <div className="flex-grow-1">
                   <div className="fw-semibold small">{l.title}</div>
-                  <small className="text-muted">Dispo : {formatDate(l.availableAt)} {new Date(l.availableAt) > new Date() ? '🔒' : '✅'}</small>
+                  <small className="text-muted">
+                    Dispo : {formatDate(l.availableAt)} · {new Date(l.availableAt) > new Date() ? 'Programmée' : 'Disponible'}
+                  </small>
                 </div>
                 <div className="d-flex gap-2">
                   <button className="btn btn-sm rounded-pill" style={{ background: '#f0f9ff', color: '#0f3460', border: '1px solid #bae6fd', fontSize: '0.75rem' }} onClick={() => startEditLesson(l)}>Modifier</button>
@@ -180,12 +182,12 @@ export default function AdminCourseDetailPage() {
           )}
         </div>
 
-        {/* ── Quiz ── */}
+        {/* Quiz */}
         <div className="card border-0 shadow-sm rounded-4 p-4">
           <div className="d-flex align-items-center justify-content-between mb-3">
-            <h2 className="fw-bold mb-0" style={{ fontSize: '1.1rem' }}>✅ Quiz</h2>
+            <h2 className="fw-bold mb-0" style={{ fontSize: '1.1rem' }}>Quiz</h2>
             <button className="btn btn-sm rounded-pill text-white fw-semibold px-3" style={{ background: '#16a34a', border: 'none' }} onClick={() => setShowQuizForm(!showQuizForm)}>
-              {showQuizForm ? 'Annuler' : '➕ Ajouter'}
+              {showQuizForm ? 'Annuler' : 'Ajouter'}
             </button>
           </div>
 
@@ -196,7 +198,7 @@ export default function AdminCourseDetailPage() {
                   <button key={m} type="button" className={`btn btn-sm rounded-pill ${quizImportMode === m ? 'text-white' : 'btn-outline-secondary'}`}
                     style={quizImportMode === m ? { background: '#16a34a', border: 'none' } : {}}
                     onClick={() => setQuizImportMode(m)}>
-                    {m === 'form' ? '📝 Formulaire' : '📄 Importer JSON'}
+                    {m === 'form' ? 'Formulaire' : 'Importer JSON'}
                   </button>
                 ))}
               </div>
@@ -218,7 +220,7 @@ export default function AdminCourseDetailPage() {
                   </div>
                   <div className="col-12">
                     <div className="alert alert-info rounded-3 small py-2">
-                      💡 Pour ajouter des questions, utilisez le mode <strong>Importer JSON</strong> avec le format ci-dessus.
+                      Pour ajouter des questions, utilisez le mode <strong>Importer JSON</strong> avec le format ci-dessus.
                     </div>
                   </div>
                 </div>
@@ -226,7 +228,7 @@ export default function AdminCourseDetailPage() {
 
               <div className="d-flex gap-2">
                 <button type="submit" className="btn rounded-pill text-white fw-semibold px-4" style={{ background: '#16a34a', border: 'none' }} disabled={savingQuiz}>
-                  {savingQuiz ? 'Sauvegarde...' : '✅ Créer le quiz'}
+                  {savingQuiz ? 'Sauvegarde...' : 'Créer le quiz'}
                 </button>
                 <button type="button" className="btn btn-outline-secondary rounded-pill" onClick={() => setShowQuizForm(false)}>Annuler</button>
               </div>

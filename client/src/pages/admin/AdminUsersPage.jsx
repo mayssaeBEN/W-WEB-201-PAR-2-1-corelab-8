@@ -57,13 +57,13 @@ export default function AdminUsersPage() {
     <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
       <Navbar />
       <div className="container-fluid px-4 py-4" style={{ maxWidth: 1100 }}>
-        <h1 className="fw-bold mb-4" style={{ fontSize: '1.6rem' }}>👥 Gestion des étudiants</h1>
+        <h1 className="fw-bold mb-4" style={{ fontSize: '1.6rem' }}>Gestion des étudiants</h1>
 
         <div className="row g-4">
           {/* Import CSV */}
           <div className="col-12 col-lg-5">
             <div className="card border-0 shadow-sm rounded-4 p-4">
-              <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>📥 Importer des étudiants (CSV)</h2>
+              <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Importer des étudiants (CSV)</h2>
               <p className="text-muted small mb-3">Format : <code>email,firstName,lastName</code></p>
               <form onSubmit={handleImport}>
                 <textarea
@@ -77,12 +77,12 @@ export default function AdminUsersPage() {
                 {error && <div className="alert alert-danger rounded-3 py-2 small mb-3">{error}</div>}
                 {importResult && (
                   <div className="alert alert-success rounded-3 py-2 small mb-3">
-                    ✅ {importResult.created} créé(s), {importResult.skipped} ignoré(s)
+                    {importResult.created} créé(s), {importResult.skipped} ignoré(s)
                     {importResult.errors?.length > 0 && <div className="mt-1 text-danger">{importResult.errors.join(', ')}</div>}
                   </div>
                 )}
                 <button type="submit" className="btn w-100 rounded-pill text-white fw-semibold" style={{ background: '#0f3460', border: 'none' }} disabled={importing}>
-                  {importing ? <><span className="spinner-border spinner-border-sm me-2" />Import...</> : '📥 Importer'}
+                  {importing ? <><span className="spinner-border spinner-border-sm me-2" />Import...</> : 'Importer'}
                 </button>
               </form>
             </div>

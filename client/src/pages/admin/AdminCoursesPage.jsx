@@ -30,18 +30,18 @@ export default function AdminCoursesPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div className="page-shell">
       <Navbar />
-      <div className="container-fluid px-4 py-4" style={{ maxWidth: 1100 }}>
-        <div className="d-flex align-items-center justify-content-between mb-4">
-          <h1 className="fw-bold mb-0" style={{ fontSize: '1.6rem' }}>Gestion des cours</h1>
-          <button className="btn rounded-pill text-white fw-semibold px-4" style={{ background: '#f97316', border: 'none' }} onClick={() => setShowForm(!showForm)}>
+      <main className="container page-container flex-grow-1" style={{ maxWidth: 1100 }}>
+        <div className="page-header d-flex align-items-center justify-content-between">
+          <h1>Gestion des cours</h1>
+          <button className="btn btn-primary" onClick={() => setShowForm(!showForm)}>
             {showForm ? 'Annuler' : 'Nouveau cours'}
           </button>
         </div>
 
         {showForm && (
-          <div className="card border-0 shadow-sm rounded-4 p-4 mb-4">
+          <div className="card panel-card mb-4">
             <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Créer un nouveau cours</h2>
             <form onSubmit={handleCreate}>
               <div className="row g-3">
@@ -61,7 +61,7 @@ export default function AdminCoursesPage() {
                 </div>
               </div>
               {error && <div className="alert alert-danger rounded-3 py-2 small mt-3">{error}</div>}
-              <button type="submit" className="btn rounded-pill text-white fw-semibold mt-3 px-4" style={{ background: '#0f3460', border: 'none' }} disabled={saving}>
+              <button type="submit" className="btn btn-primary mt-3 px-4" disabled={saving}>
                 {saving ? 'Création...' : 'Créer le cours'}
               </button>
             </form>
@@ -71,7 +71,7 @@ export default function AdminCoursesPage() {
         <div className="row g-3">
           {courses.map(c => (
             <div key={c._id} className="col-12 col-md-6 col-lg-4">
-              <div className="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+              <div className="card course-card overflow-hidden h-100">
                 <div style={{ height: 12, background: c.color }} />
                 <div className="p-3">
                   <h6 className="fw-bold mb-1">{c.title}</h6>
@@ -80,7 +80,7 @@ export default function AdminCoursesPage() {
                     <span className="badge rounded-pill bg-light text-secondary">{c.lessonsCount} leçons</span>
                     <span className="badge rounded-pill bg-light text-secondary">{c.quizzesCount} quiz</span>
                   </div>
-                  <button className="btn btn-sm w-100 rounded-pill fw-semibold text-white" style={{ background: c.color, border: 'none' }} onClick={() => navigate(`/admin/courses/${c._id}`)}>
+                  <button className="btn btn-quiet btn-sm w-100" onClick={() => navigate(`/admin/courses/${c._id}`)}>
                     Gérer le contenu
                   </button>
                 </div>
@@ -88,7 +88,7 @@ export default function AdminCoursesPage() {
             </div>
           ))}
         </div>
-      </div>
+      </main>
     </div>
   )
 }

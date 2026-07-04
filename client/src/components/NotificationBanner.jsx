@@ -47,14 +47,12 @@ export default function NotificationBanner() {
   return (
     <div className="mb-4">
       {notifications.map(n => (
-        <div key={n.id} className="d-flex align-items-center gap-3 p-3 rounded-3 mb-2"
-          style={{ background: '#fff7ed', border: '1px solid #fed7aa' }}>
+        <div key={n.id} className="notification-item">
           <div className="flex-grow-1">
             <span className="fw-semibold small">Nouvelle leçon disponible : </span>
             <span className="small">"{n.title}" dans <em>{n.courseTitle}</em> (depuis le {formatDate(n.date)})</span>
           </div>
-          <button className="btn btn-sm rounded-pill fw-semibold text-white px-3"
-            style={{ background: '#f97316', border: 'none', fontSize: '0.8rem', whiteSpace: 'nowrap' }}
+          <button className="btn btn-sm btn-accent"
             onClick={() => { dismiss(n.id); setNotifications(p => p.filter(x => x.id !== n.id)); navigate(`/lessons/${n.lessonId}`) }}>
             Voir
           </button>

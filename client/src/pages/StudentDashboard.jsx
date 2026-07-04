@@ -28,16 +28,17 @@ export default function StudentDashboard() {
   const recentCourses = courses.slice(0, 4)
 
   return (
-    <div className="d-flex flex-column min-vh-100 bg-light">
+    <div className="page-shell">
       <Navbar />
 
-      <div className="container py-4 flex-grow-1">
+      <main className="container page-container flex-grow-1">
 
         <NotificationBanner />
 
-        <div className="bg-orange text-white rounded p-4 mb-4">
-          <h1 className="h4 fw-bold mb-1">Bonjour, {user?.firstName} !</h1>
-          <p className="mb-0">
+        {/* Welcome */}
+        <div className="page-header compact-header">
+          <h1>Bonjour, {user?.firstName}</h1>
+          <p className="text-muted small mb-0">
             {globalPct === 0
               ? 'Prêt à démarrer ton apprentissage basketball ?'
               : globalPct === 100
@@ -46,43 +47,44 @@ export default function StudentDashboard() {
           </p>
         </div>
 
+        {/* Stats */}
         <div className="row g-3 mb-4">
           <div className="col-6 col-md-3">
-            <div className="card shadow-sm text-center p-3 h-100">
-              <div className="fw-bold fs-3 text-orange">{courses.length}</div>
+            <div className="card stat-card h-100">
+              <div className="stat-value">{courses.length}</div>
               <small className="text-muted">Cours disponibles</small>
             </div>
           </div>
           <div className="col-6 col-md-3">
-            <div className="card shadow-sm text-center p-3 h-100">
-              <div className="fw-bold fs-3 text-orange">{completedLessons}</div>
+            <div className="card stat-card h-100">
+              <div className="stat-value">{completedLessons}</div>
               <small className="text-muted">Leçons complétées</small>
             </div>
           </div>
           <div className="col-6 col-md-3">
-            <div className="card shadow-sm text-center p-3 h-100">
-              <div className="fw-bold fs-3 text-orange">{globalPct}%</div>
+            <div className="card stat-card h-100">
+              <div className="stat-value">{globalPct}%</div>
               <small className="text-muted">Progression globale</small>
             </div>
           </div>
           <div className="col-6 col-md-3">
-            <div className="card shadow-sm text-center p-3 h-100">
-              <div className="fw-bold fs-3 text-orange">{activeCourses.length}</div>
+            <div className="card stat-card h-100">
+              <div className="stat-value">{activeCourses.length}</div>
               <small className="text-muted">Cours en cours</small>
             </div>
           </div>
         </div>
 
-        <div className="card shadow-sm p-4 mb-4">
-          <h2 className="h6 fw-bold mb-3">Progression générale</h2>
-          <ProgressBar value={completedLessons} total={totalLessons} label="Toutes leçons confondues" height={10} />
+        <div className="card panel-card mb-4">
+          <h2 className="section-title">Progression générale</h2>
+          <ProgressBar value={completedLessons} total={totalLessons} label="Toutes leçons confondues" height={8} />
         </div>
 
         <div className="row g-4">
           {/* Accès rapide */}
           <div className="col-lg-4">
-            <div className="card shadow-sm p-4 h-100">
-              <h2 className="h6 fw-bold mb-3">Accès rapide</h2>
+            <div className="card panel-card h-100">
+              <h2 className="section-title">Accès rapide</h2>
 
               <p className="text-muted small text-uppercase mb-2">Continuer</p>
               {activeCourses.length === 0 ? (
@@ -91,8 +93,7 @@ export default function StudentDashboard() {
                 activeCourses.map(c => (
                   <div
                     key={c._id}
-                    className="d-flex align-items-center gap-2 p-2 border rounded mb-2"
-                    style={{ cursor: 'pointer' }}
+                    className="quick-course"
                     onClick={() => navigate(`/courses/${c._id}`)}
                     role="button"
                   >
@@ -127,8 +128,8 @@ export default function StudentDashboard() {
           {/* Course list */}
           <div className="col-lg-8">
             <div className="d-flex align-items-center justify-content-between mb-3">
-              <h2 className="h6 fw-bold mb-0">Mes cours</h2>
-              <button className="btn btn-orange btn-sm" onClick={() => navigate('/courses')}>
+              <h2 className="section-title mb-0">Mes cours</h2>
+              <button className="btn btn-quiet btn-sm" onClick={() => navigate('/courses')}>
                 Voir tous
               </button>
             </div>
@@ -150,7 +151,7 @@ export default function StudentDashboard() {
           </div>
         </div>
 
-      </div>
+      </main>
       <Footer />
     </div>
   )

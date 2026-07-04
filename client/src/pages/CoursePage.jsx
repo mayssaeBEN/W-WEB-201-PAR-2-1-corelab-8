@@ -21,7 +21,7 @@ export default function CoursePage() {
 
   if (loading) {
     return (
-      <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+      <div className="page-shell">
         <Navbar />
         <div className="d-flex align-items-center justify-content-center" style={{ height: '60vh' }}>
           <div className="text-center">
@@ -35,7 +35,7 @@ export default function CoursePage() {
 
   if (!course) {
     return (
-      <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+      <div className="page-shell">
         <Navbar />
         <div className="container py-5 text-center">
           <h2>Cours introuvable</h2>
@@ -50,10 +50,10 @@ export default function CoursePage() {
   const { title, description, color, lessons = [], quizzes = [], completedLessons, totalLessons } = course
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div className="page-shell">
       <Navbar />
 
-      <div className="container-fluid px-4 py-4" style={{ maxWidth: 900 }}>
+      <main className="container page-container flex-grow-1" style={{ maxWidth: 900 }}>
 
         {/* Back button */}
         <button
@@ -64,14 +64,11 @@ export default function CoursePage() {
         </button>
 
         {/* Course header */}
-        <div
-          className="rounded-4 p-4 mb-4 text-white"
-          style={{ background: `linear-gradient(135deg, ${color}cc, ${color})` }}
-        >
+        <div className="card panel-card mb-4" style={{ borderTop: `3px solid ${color}` }}>
           <div className="mb-2">
             <div>
-              <h1 className="fw-bold mb-1" style={{ fontSize: '1.6rem' }}>{title}</h1>
-              <p className="mb-0" style={{ opacity: 0.85 }}>{description}</p>
+              <h1 className="fw-bold mb-1" style={{ fontSize: '1.35rem' }}>{title}</h1>
+              <p className="text-muted mb-0">{description}</p>
             </div>
           </div>
           <div className="mt-3">
@@ -83,7 +80,7 @@ export default function CoursePage() {
 
           {/* Lessons */}
           <div className="col-12 col-md-7">
-            <div className="card border-0 shadow-sm rounded-4 p-4">
+            <div className="card panel-card">
               <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Leçons</h2>
               {lessons.length === 0 ? (
                 <p className="text-muted">Aucune leçon disponible.</p>
@@ -97,7 +94,7 @@ export default function CoursePage() {
 
           {/* Quizzes */}
           <div className="col-12 col-md-5">
-            <div className="card border-0 shadow-sm rounded-4 p-4">
+            <div className="card panel-card">
               <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Quiz</h2>
               {quizzes.length === 0 ? (
                 <p className="text-muted">Aucun quiz disponible.</p>
@@ -107,8 +104,7 @@ export default function CoursePage() {
                   return (
                     <div
                       key={quiz._id}
-                      className="p-3 rounded-3 mb-2"
-                      style={{ background: '#f8fafc', border: '1px solid #e5e7eb' }}
+                      className="quick-course"
                     >
                       <div className="fw-semibold mb-1" style={{ fontSize: '0.95rem' }}>{quiz.title}</div>
                       <div className="d-flex align-items-center justify-content-between gap-2">
@@ -120,8 +116,7 @@ export default function CoursePage() {
                         )}
                       </div>
                       <button
-                        className="btn btn-sm mt-2 w-100 rounded-pill fw-semibold"
-                        style={{ background: color, color: 'white', border: 'none', fontSize: '0.85rem' }}
+                        className="btn btn-primary btn-sm mt-2 w-100"
                         onClick={() => navigate(`/quiz/${quiz._id}`)}
                       >
                         {result ? 'Refaire le quiz' : 'Démarrer le quiz'}
@@ -134,7 +129,7 @@ export default function CoursePage() {
           </div>
 
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   )

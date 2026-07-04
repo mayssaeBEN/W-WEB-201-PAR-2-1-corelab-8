@@ -14,29 +14,14 @@ export default function LessonItem({ lesson, index }) {
 
   return (
     <div
-      className={`d-flex align-items-center gap-3 p-3 rounded-3 mb-2 ${available ? 'lesson-available' : 'lesson-locked'}`}
-      style={{
-        background: available ? (completed ? '#f0fff4' : '#fff') : '#f8f9fa',
-        border: `1px solid ${available ? (completed ? '#86efac' : '#e5e7eb') : '#e5e7eb'}`,
-        cursor: available ? 'pointer' : 'not-allowed',
-        opacity: available ? 1 : 0.7,
-        transition: 'background 0.2s',
-      }}
+      className={`lesson-item ${completed ? 'is-completed' : ''} ${available ? 'lesson-available' : 'lesson-locked'}`}
       onClick={handleClick}
       role="button"
       tabIndex={available ? 0 : -1}
       onKeyDown={e => e.key === 'Enter' && handleClick()}
     >
       <div
-        className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0"
-        style={{
-          width: 40,
-          height: 40,
-          background: available ? (completed ? '#16a34a' : '#3b82f6') : '#9ca3af',
-          color: 'white',
-          fontWeight: 700,
-          fontSize: '0.9rem',
-        }}
+        className="lesson-index"
       >
         {completed ? 'OK' : available ? index + 1 : '-'}
       </div>

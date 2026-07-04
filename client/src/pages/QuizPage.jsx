@@ -46,7 +46,7 @@ export default function QuizPage() {
 
   if (loading) {
     return (
-      <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+      <div className="page-shell">
         <Navbar />
         <div className="d-flex align-items-center justify-content-center" style={{ height: '60vh' }}>
           <div className="spinner-border text-warning" role="status" />
@@ -57,7 +57,7 @@ export default function QuizPage() {
 
   if (!quiz) {
     return (
-      <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+      <div className="page-shell">
         <Navbar />
         <div className="container py-5 text-center">
           <h2>Quiz introuvable</h2>
@@ -68,7 +68,7 @@ export default function QuizPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div className="page-shell">
       <Navbar />
 
       <div className="container-fluid px-4 py-4" style={{ maxWidth: 800 }}>
@@ -78,16 +78,13 @@ export default function QuizPage() {
         </button>
 
         {/* Quiz header */}
-        <div
-          className="rounded-4 p-4 mb-4 text-white"
-          style={{ background: 'linear-gradient(135deg, #f97316, #ef4444)' }}
-        >
+        <div className="card panel-card mb-4">
           <div className="d-flex align-items-center gap-3">
             <div>
-              <h1 className="fw-bold mb-1" style={{ fontSize: '1.5rem' }}>{quiz.title}</h1>
+              <h1 className="fw-bold mb-1" style={{ fontSize: '1.3rem' }}>{quiz.title}</h1>
               <div className="d-flex gap-3">
-                <small style={{ opacity: 0.85 }}>{totalQuestions} questions</small>
-                <small style={{ opacity: 0.85 }}>Seuil de réussite : {quiz.passingScore}%</small>
+                <small className="text-muted">{totalQuestions} questions</small>
+                <small className="text-muted">Seuil de réussite : {quiz.passingScore}%</small>
               </div>
             </div>
           </div>
@@ -95,8 +92,8 @@ export default function QuizPage() {
           {/* Progress indicator */}
           <div className="mt-3">
             <div className="d-flex justify-content-between mb-1">
-              <small style={{ opacity: 0.85 }}>Questions répondues</small>
-              <small style={{ opacity: 0.85 }}>{answeredCount}/{totalQuestions}</small>
+              <small className="text-muted">Questions répondues</small>
+              <small className="text-muted">{answeredCount}/{totalQuestions}</small>
             </div>
             <div className="progress rounded-pill" style={{ height: 8, background: 'rgba(255,255,255,0.3)' }}>
               <div
@@ -126,11 +123,8 @@ export default function QuizPage() {
 
         <div className="d-grid">
           <button
-            className="btn py-3 fw-bold rounded-pill text-white"
+            className={`btn py-3 fw-bold ${allAnswered ? 'btn-primary' : 'btn-light'}`}
             style={{
-              background: allAnswered ? 'linear-gradient(135deg, #f97316, #ef4444)' : '#e5e7eb',
-              border: 'none',
-              color: allAnswered ? 'white' : '#9ca3af',
               transition: 'all 0.2s',
             }}
             onClick={handleSubmit}

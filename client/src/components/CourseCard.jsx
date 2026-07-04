@@ -6,19 +6,17 @@ export default function CourseCard({ course }) {
   const { _id, title, description, lessonsCount, quizzesCount, totalLessons, completedLessons } = course
 
   return (
-    <div className="card h-100 shadow-sm">
-      <div className="card-header bg-orange text-white">
-        <h3 className="h6 fw-bold mb-0">{title}</h3>
-      </div>
+    <div className="card course-card h-100">
       <div className="card-body d-flex flex-column">
-        <p className="text-muted small">{description}</p>
-        <div className="mb-3">
-          <span className="badge bg-light text-dark border me-2">{lessonsCount} leçons</span>
-          <span className="badge bg-light text-dark border">{quizzesCount} quiz</span>
+        <h3 className="course-card-title">{title}</h3>
+        <p className="course-card-description text-clamp-2">{description}</p>
+        <div className="course-card-meta">
+          <span className="badge bg-light fw-normal">{lessonsCount} leçons</span>
+          <span className="badge bg-light fw-normal">{quizzesCount} quiz</span>
         </div>
-        <ProgressBar value={completedLessons} total={totalLessons} label="Progression" height={8} />
+        <ProgressBar value={completedLessons} total={totalLessons} label="Progression" height={6} />
         <button
-          className="btn btn-orange btn-sm mt-auto"
+          className="btn btn-quiet btn-sm mt-3"
           onClick={() => navigate(`/courses/${_id}`)}
         >
           Voir le cours

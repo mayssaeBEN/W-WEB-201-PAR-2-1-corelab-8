@@ -29,7 +29,7 @@ export default function LessonPage() {
 
   if (loading) {
     return (
-      <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+      <div className="page-shell">
         <Navbar />
         <div className="d-flex align-items-center justify-content-center" style={{ height: '60vh' }}>
           <div className="spinner-border text-warning" role="status" />
@@ -40,7 +40,7 @@ export default function LessonPage() {
 
   if (!lesson) {
     return (
-      <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+      <div className="page-shell">
         <Navbar />
         <div className="container py-5 text-center">
           <h2>Leçon introuvable</h2>
@@ -54,7 +54,7 @@ export default function LessonPage() {
 
   if (!available) {
     return (
-      <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+      <div className="page-shell">
         <Navbar />
         <div className="container py-5" style={{ maxWidth: 700 }}>
           <button className="btn btn-sm btn-outline-secondary rounded-pill mb-4" onClick={() => navigate(-1)}>
@@ -80,7 +80,7 @@ export default function LessonPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div className="page-shell">
       <Navbar />
 
       <div className="container-fluid px-4 py-4" style={{ maxWidth: 860 }}>
@@ -89,11 +89,8 @@ export default function LessonPage() {
           Retour au cours
         </button>
 
-        <div className="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
-          <div
-            className="p-4"
-            style={{ background: 'linear-gradient(135deg, #1a1a2e, #0f3460)', color: 'white' }}
-          >
+        <div className="card overflow-hidden mb-4">
+          <div className="p-4 bg-primary text-white">
             <div className="mb-1">
               <small className="text-white-50">Leçon</small>
             </div>
@@ -111,7 +108,7 @@ export default function LessonPage() {
         </div>
 
         {/* Mark as complete */}
-        <div className="card border-0 shadow-sm rounded-4 p-4 text-center">
+        <div className="card panel-card text-center">
           {markedDone ? (
             <div className="text-success">
               <p className="fw-bold mt-2 mb-3">Leçon marquée comme complétée !</p>
@@ -123,8 +120,7 @@ export default function LessonPage() {
             <>
               <p className="text-muted mb-3">Tu as terminé cette leçon ?</p>
               <button
-                className="btn rounded-pill px-4 fw-semibold text-white"
-                style={{ background: 'linear-gradient(135deg, #16a34a, #15803d)', border: 'none' }}
+                className="btn btn-primary px-4"
                 onClick={handleComplete}
                 disabled={marking}
               >

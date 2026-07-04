@@ -30,15 +30,15 @@ export default function FirstLoginPage() {
   }
 
   return (
-    <div className="min-vh-100 d-flex align-items-center justify-content-center bg-navy">
+    <div className="auth-page">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-9 col-md-6 col-lg-5">
             <div className="text-center mb-4">
-              <h1 className="text-white fw-bold mt-2">Bienvenue !</h1>
-              <p className="text-white-50">Bonjour {user?.firstName}, choisis ton mot de passe pour sécuriser ton compte.</p>
+              <h1 className="fw-bold mt-2">Bienvenue !</h1>
+              <p className="text-muted">Bonjour {user?.firstName}, choisis ton mot de passe pour sécuriser ton compte.</p>
             </div>
-            <div className="card border-0 shadow-lg rounded-4 p-4">
+            <div className="card auth-card">
               <h2 className="fw-bold text-center mb-4" style={{ fontSize: '1.3rem' }}>Choisir mon mot de passe</h2>
               {error && <div className="alert alert-danger rounded-3 py-2 mb-3 small">{error}</div>}
               <form onSubmit={handleSubmit}>
@@ -55,7 +55,7 @@ export default function FirstLoginPage() {
                   <label className="form-label small fw-semibold text-muted">Confirmer le mot de passe</label>
                   <input type="password" className="form-control rounded-3" placeholder="Répéter le mot de passe" value={confirm} onChange={e => setConfirm(e.target.value)} required />
                 </div>
-                <button type="submit" className="btn w-100 fw-bold rounded-pill py-2 text-white" style={{ background: 'linear-gradient(135deg, #f97316, #ef4444)', border: 'none' }} disabled={loading}>
+                <button type="submit" className="btn btn-primary w-100 py-2" disabled={loading}>
                   {loading ? <><span className="spinner-border spinner-border-sm me-2" />Enregistrement...</> : 'Définir mon mot de passe'}
                 </button>
               </form>

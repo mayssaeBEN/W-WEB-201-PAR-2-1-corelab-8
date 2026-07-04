@@ -1,10 +1,10 @@
 export default function ScoreDisplay({ score, passed, passingScore, correct, total }) {
-  const color = passed ? '#16a34a' : '#dc2626'
-  const bg = passed ? '#f0fff4' : '#fff5f5'
-  const border = passed ? '#86efac' : '#fca5a5'
+  const color = passed ? 'var(--success)' : 'var(--danger)'
+  const bg = passed ? '#f6fbf8' : '#fff8f8'
+  const border = passed ? '#d8eee1' : '#f2d5d8'
 
   return (
-    <div className="text-center p-4 rounded-4" style={{ background: bg, border: `2px solid ${border}` }}>
+    <div className="card text-center p-4" style={{ background: bg, borderColor: border }}>
       <div style={{ fontSize: '4rem', fontWeight: 800, color, lineHeight: 1 }}>
         {score}%
       </div>

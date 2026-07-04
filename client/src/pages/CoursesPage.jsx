@@ -22,12 +22,12 @@ export default function CoursesPage() {
   )
 
   return (
-    <div className="d-flex flex-column min-vh-100 bg-light">
+    <div className="page-shell">
       <Navbar />
-      <div className="container py-4 flex-grow-1">
-        <div className="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+      <main className="container page-container flex-grow-1">
+        <div className="page-header d-flex align-items-end justify-content-between flex-wrap gap-3">
           <div>
-            <h1 className="h4 fw-bold mb-1">Catalogue des cours</h1>
+            <h1>Catalogue des cours</h1>
             <p className="text-muted mb-0">Tous les cours disponibles.</p>
           </div>
           <input
@@ -58,7 +58,7 @@ export default function CoursesPage() {
             ))}
           </div>
         )}
-      </div>
+      </main>
       <Footer />
     </div>
   )

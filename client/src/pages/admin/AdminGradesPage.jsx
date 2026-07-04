@@ -21,10 +21,10 @@ export default function AdminGradesPage() {
   const avg = grades.length > 0 ? Math.round(grades.reduce((s, g) => s + g.score, 0) / grades.length) : 0
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div className="page-shell">
       <Navbar />
-      <div className="container-fluid px-4 py-4" style={{ maxWidth: 1100 }}>
-        <h1 className="fw-bold mb-4" style={{ fontSize: '1.6rem' }}>Notes des étudiants</h1>
+      <main className="container page-container flex-grow-1" style={{ maxWidth: 1100 }}>
+        <div className="page-header"><h1>Notes des étudiants</h1></div>
 
         <div className="row g-3 mb-4">
           {[
@@ -34,7 +34,7 @@ export default function AdminGradesPage() {
             { label: 'Moyenne générale', value: `${avg}%`, color: '#f97316' },
           ].map(s => (
             <div key={s.label} className="col-6 col-md-3">
-              <div className="card border-0 shadow-sm rounded-4 p-3 text-center">
+              <div className="card stat-card text-center">
                 <div className="fw-bold" style={{ fontSize: '1.8rem', color: s.color }}>{s.value}</div>
                 <small className="text-muted">{s.label}</small>
               </div>
@@ -42,7 +42,7 @@ export default function AdminGradesPage() {
           ))}
         </div>
 
-        <div className="card border-0 shadow-sm rounded-4 p-4">
+        <div className="card panel-card">
           <div className="mb-3">
             <input className="form-control rounded-3" placeholder="Filtrer par étudiant..." value={filter} onChange={e => setFilter(e.target.value)} style={{ maxWidth: 320 }} />
           </div>
@@ -90,7 +90,7 @@ export default function AdminGradesPage() {
             </div>
           )}
         </div>
-      </div>
+      </main>
     </div>
   )
 }

@@ -31,16 +31,16 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-vh-100 d-flex align-items-center bg-light">
+    <main className="auth-page">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-10 col-md-6 col-lg-4">
-            <div className="text-center mb-4">
-              <h1 className="fw-bold text-orange">BasketLearn</h1>
+            <div className="text-center auth-brand">
+              <h1>BasketLearn</h1>
               <p className="text-muted">Plateforme e-learning basketball</p>
             </div>
-            <div className="card shadow-sm p-4">
-              <h2 className="h5 fw-bold text-center mb-4">Connexion</h2>
+            <div className="card auth-card">
+              <h2>Connexion</h2>
               {error && <div className="alert alert-danger py-2 mb-3" role="alert">{error}</div>}
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -51,7 +51,7 @@ export default function LoginPage() {
                   <label className="form-label" htmlFor="password">Mot de passe</label>
                   <input id="password" type="password" className="form-control" placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
                 </div>
-                <button type="submit" className="btn btn-orange w-100" disabled={loading}>
+                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
                   {loading ? <><span className="spinner-border spinner-border-sm me-2" />Connexion...</> : 'Se connecter'}
                 </button>
               </form>

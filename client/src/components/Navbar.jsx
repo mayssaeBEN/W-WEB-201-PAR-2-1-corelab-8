@@ -16,12 +16,15 @@ export default function Navbar() {
     return location.pathname.startsWith(path) ? 'active' : ''
   }
 
+  const initials = `${user?.firstName?.[0] || ''}${user?.lastName?.[0] || ''}`.toUpperCase()
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-navy sticky-top">
+    <nav className="navbar navbar-expand-lg sticky-top app-navbar">
       <div className="container">
         <Link className="navbar-brand fw-bold" to={isAdmin ? '/admin' : '/dashboard'}>
+          <span className="brand-dot" />
           BasketLearn
-          {isAdmin && <span className="badge bg-dark ms-2">ADMIN</span>}
+          {isAdmin && <span className="badge bg-navy text-white ms-2">ADMIN</span>}
         </Link>
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,8 +59,13 @@ export default function Navbar() {
 
           {user && (
             <div className="d-flex align-items-center gap-3">
-              <span className="text-white small">{user.firstName} {user.lastName}</span>
-              <button className="btn btn-outline-light btn-sm" onClick={handleLogout}>
+              <div className="d-flex align-items-center gap-2">
+                <span className="user-avatar">
+                  {initials}
+                </span>
+                <span className="text-secondary small d-none d-sm-inline">{user.firstName} {user.lastName}</span>
+              </div>
+              <button className="btn btn-quiet btn-sm" onClick={handleLogout}>
                 Déconnexion
               </button>
             </div>

@@ -10,7 +10,7 @@ export default function QuizResultPage() {
 
   if (!result || !quiz) {
     return (
-      <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+      <div className="page-shell">
         <Navbar />
         <div className="container py-5 text-center">
           <h2>Résultats indisponibles</h2>
@@ -26,10 +26,10 @@ export default function QuizResultPage() {
   const { score, passed, passingScore, correct, total, feedback } = result
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div className="page-shell">
       <Navbar />
 
-      <div className="container-fluid px-4 py-4" style={{ maxWidth: 800 }}>
+      <main className="container page-container flex-grow-1" style={{ maxWidth: 800 }}>
 
         <h1 className="fw-bold mb-4" style={{ fontSize: '1.5rem' }}>Résultats du quiz</h1>
         <p className="text-muted mb-4">{quiz.title}</p>
@@ -73,8 +73,7 @@ export default function QuizResultPage() {
         {/* Actions */}
         <div className="d-flex gap-3 flex-wrap">
           <button
-            className="btn rounded-pill fw-semibold text-white px-4"
-            style={{ background: 'linear-gradient(135deg, #f97316, #ef4444)', border: 'none' }}
+            className="btn btn-primary px-4"
             onClick={() => navigate(`/quiz/${quizId}`)}
           >
             Refaire le quiz
@@ -93,7 +92,7 @@ export default function QuizResultPage() {
           </button>
         </div>
 
-      </div>
+      </main>
     </div>
   )
 }

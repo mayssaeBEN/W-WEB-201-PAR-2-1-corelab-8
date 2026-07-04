@@ -54,15 +54,15 @@ export default function AdminUsersPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div className="page-shell">
       <Navbar />
-      <div className="container-fluid px-4 py-4" style={{ maxWidth: 1100 }}>
-        <h1 className="fw-bold mb-4" style={{ fontSize: '1.6rem' }}>Gestion des étudiants</h1>
+      <main className="container page-container flex-grow-1" style={{ maxWidth: 1100 }}>
+        <div className="page-header"><h1>Gestion des étudiants</h1></div>
 
         <div className="row g-4">
           {/* Import CSV */}
           <div className="col-12 col-lg-5">
-            <div className="card border-0 shadow-sm rounded-4 p-4">
+            <div className="card panel-card">
               <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Importer des étudiants (CSV)</h2>
               <p className="text-muted small mb-3">Format : <code>email,firstName,lastName</code></p>
               <form onSubmit={handleImport}>
@@ -81,7 +81,7 @@ export default function AdminUsersPage() {
                     {importResult.errors?.length > 0 && <div className="mt-1 text-danger">{importResult.errors.join(', ')}</div>}
                   </div>
                 )}
-                <button type="submit" className="btn w-100 rounded-pill text-white fw-semibold" style={{ background: '#0f3460', border: 'none' }} disabled={importing}>
+                <button type="submit" className="btn btn-primary w-100" disabled={importing}>
                   {importing ? <><span className="spinner-border spinner-border-sm me-2" />Import...</> : 'Importer'}
                 </button>
               </form>
@@ -90,7 +90,7 @@ export default function AdminUsersPage() {
 
           {/* Liste étudiants */}
           <div className="col-12 col-lg-7">
-            <div className="card border-0 shadow-sm rounded-4 p-4">
+            <div className="card panel-card">
               <h2 className="fw-bold mb-3" style={{ fontSize: '1.1rem' }}>Liste des étudiants ({users.length})</h2>
               {users.length === 0 ? (
                 <p className="text-muted">Aucun étudiant. Importez-en via CSV.</p>
@@ -145,7 +145,7 @@ export default function AdminUsersPage() {
             </div>
           </div>
         )}
-      </div>
+      </main>
     </div>
   )
 }

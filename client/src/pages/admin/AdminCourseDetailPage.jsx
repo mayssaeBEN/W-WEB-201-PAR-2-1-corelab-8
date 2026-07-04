@@ -94,7 +94,7 @@ export default function AdminCourseDetailPage() {
   }
 
   if (loading) return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div className="page-shell">
       <Navbar />
       <div className="d-flex align-items-center justify-content-center" style={{ height: '60vh' }}>
         <div className="spinner-border text-warning" role="status" />
@@ -103,14 +103,13 @@ export default function AdminCourseDetailPage() {
   )
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+    <div className="page-shell">
       <Navbar />
-      <div className="container-fluid px-4 py-4" style={{ maxWidth: 1000 }}>
+      <main className="container page-container flex-grow-1" style={{ maxWidth: 1000 }}>
         <button className="btn btn-sm btn-outline-secondary rounded-pill mb-3" onClick={() => navigate('/admin/courses')}>Retour aux cours</button>
 
-        <div className="rounded-4 p-4 mb-4 text-white" style={{ background: `linear-gradient(135deg, ${course?.color}cc, ${course?.color})` }}>
+        <div className="card panel-card mb-4" style={{ borderTop: `3px solid ${course?.color}` }}>
           <div className="d-flex align-items-center gap-3">
-            <span style={{ fontSize: '2.5rem' }}>{course?.icon}</span>
             <div>
               <h1 className="fw-bold mb-0" style={{ fontSize: '1.5rem' }}>{course?.title}</h1>
               <small style={{ opacity: 0.85 }}>{course?.lessons?.length} leçons · {course?.quizzes?.length} quiz</small>
@@ -122,17 +121,17 @@ export default function AdminCourseDetailPage() {
         {error && <div className="alert alert-danger rounded-3 py-2 mb-3">{error}</div>}
 
         {/* Leçons */}
-        <div className="card border-0 shadow-sm rounded-4 p-4 mb-4">
+        <div className="card panel-card mb-4">
           <div className="d-flex align-items-center justify-content-between mb-3">
             <h2 className="fw-bold mb-0" style={{ fontSize: '1.1rem' }}>Leçons</h2>
-            <button className="btn btn-sm rounded-pill text-white fw-semibold px-3" style={{ background: '#f97316', border: 'none' }}
+            <button className="btn btn-primary btn-sm"
               onClick={() => { setShowLessonForm(!showLessonForm); setEditingLesson(null); setLessonForm(EMPTY_LESSON) }}>
               {showLessonForm && !editingLesson ? 'Annuler' : 'Ajouter'}
             </button>
           </div>
 
           {showLessonForm && (
-            <form onSubmit={handleSaveLesson} className="mb-4 p-3 rounded-3" style={{ background: '#f0f9ff', border: '1px solid #bae6fd' }}>
+            <form onSubmit={handleSaveLesson} className="mb-4 p-3 rounded-3 bg-light border">
               <h6 className="fw-bold mb-3">{editingLesson ? 'Modifier la leçon' : 'Nouvelle leçon'}</h6>
               <div className="row g-3 mb-3">
                 <div className="col-12 col-md-7">
@@ -153,7 +152,7 @@ export default function AdminCourseDetailPage() {
                 </div>
               </div>
               <div className="d-flex gap-2">
-                <button type="submit" className="btn rounded-pill text-white fw-semibold px-4" style={{ background: '#0f3460', border: 'none' }} disabled={savingLesson}>
+                <button type="submit" className="btn btn-primary px-4" disabled={savingLesson}>
                   {savingLesson ? 'Sauvegarde...' : editingLesson ? 'Modifier' : 'Créer'}
                 </button>
                 <button type="button" className="btn btn-outline-secondary rounded-pill" onClick={() => { setShowLessonForm(false); setEditingLesson(null) }}>Annuler</button>
@@ -183,20 +182,20 @@ export default function AdminCourseDetailPage() {
         </div>
 
         {/* Quiz */}
-        <div className="card border-0 shadow-sm rounded-4 p-4">
+        <div className="card panel-card">
           <div className="d-flex align-items-center justify-content-between mb-3">
             <h2 className="fw-bold mb-0" style={{ fontSize: '1.1rem' }}>Quiz</h2>
-            <button className="btn btn-sm rounded-pill text-white fw-semibold px-3" style={{ background: '#16a34a', border: 'none' }} onClick={() => setShowQuizForm(!showQuizForm)}>
+            <button className="btn btn-primary btn-sm" onClick={() => setShowQuizForm(!showQuizForm)}>
               {showQuizForm ? 'Annuler' : 'Ajouter'}
             </button>
           </div>
 
           {showQuizForm && (
-            <form onSubmit={handleSaveQuiz} className="mb-4 p-3 rounded-3" style={{ background: '#f0fff4', border: '1px solid #86efac' }}>
+            <form onSubmit={handleSaveQuiz} className="mb-4 p-3 rounded-3 bg-light border">
               <div className="d-flex gap-2 mb-3">
                 {['form', 'json'].map(m => (
                   <button key={m} type="button" className={`btn btn-sm rounded-pill ${quizImportMode === m ? 'text-white' : 'btn-outline-secondary'}`}
-                    style={quizImportMode === m ? { background: '#16a34a', border: 'none' } : {}}
+                    style={quizImportMode === m ? { background: 'var(--primary)', border: 'none' } : {}}
                     onClick={() => setQuizImportMode(m)}>
                     {m === 'form' ? 'Formulaire' : 'Importer JSON'}
                   </button>
@@ -227,7 +226,7 @@ export default function AdminCourseDetailPage() {
               )}
 
               <div className="d-flex gap-2">
-                <button type="submit" className="btn rounded-pill text-white fw-semibold px-4" style={{ background: '#16a34a', border: 'none' }} disabled={savingQuiz}>
+                <button type="submit" className="btn btn-primary px-4" disabled={savingQuiz}>
                   {savingQuiz ? 'Sauvegarde...' : 'Créer le quiz'}
                 </button>
                 <button type="button" className="btn btn-outline-secondary rounded-pill" onClick={() => setShowQuizForm(false)}>Annuler</button>
@@ -249,7 +248,7 @@ export default function AdminCourseDetailPage() {
             ))
           )}
         </div>
-      </div>
+      </main>
     </div>
   )
 }

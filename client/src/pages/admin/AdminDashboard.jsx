@@ -23,19 +23,19 @@ export default function AdminDashboard() {
   ]
 
   return (
-    <div className="d-flex flex-column min-vh-100 bg-light">
+    <div className="page-shell">
       <Navbar />
-      <div className="container py-4 flex-grow-1">
-        <div className="bg-primary text-white rounded p-4 mb-4">
-          <h1 className="h4 fw-bold mb-1">Bonjour, {user?.firstName}</h1>
-          <p className="mb-0 opacity-75">Tableau de bord administrateur - BasketLearn</p>
+      <main className="container page-container flex-grow-1">
+        <div className="page-header compact-header">
+          <h1>Bonjour, {user?.firstName}</h1>
+          <p className="text-muted mb-0">Tableau de bord administrateur - BasketLearn</p>
         </div>
 
         <div className="row g-3 mb-4">
           {cards.map(c => (
             <div key={c.label} className="col-12 col-md-4">
-              <div className="card shadow-sm p-4 h-100" style={{ cursor: 'pointer' }} onClick={() => navigate(c.path)}>
-                <div className={`fw-bold fs-2 text-${c.variant}`}>{c.value}</div>
+              <div className="card stat-card h-100 clickable-card" onClick={() => navigate(c.path)}>
+                <div className="stat-value">{c.value}</div>
                 <div className="text-muted">{c.label}</div>
               </div>
             </div>
@@ -49,7 +49,7 @@ export default function AdminDashboard() {
             { title: 'Voir les notes', desc: 'Consulter les résultats de quiz de tous les étudiants', btn: 'Voir les notes', path: '/admin/grades' },
           ].map(item => (
             <div key={item.title} className="col-12 col-md-4">
-              <div className="card shadow-sm p-4 h-100">
+              <div className="card panel-card h-100">
                 <h6 className="fw-bold mb-2">{item.title}</h6>
                 <p className="text-muted small mb-3">{item.desc}</p>
                 <button className="btn btn-primary btn-sm" onClick={() => navigate(item.path)}>
@@ -59,7 +59,7 @@ export default function AdminDashboard() {
             </div>
           ))}
         </div>
-      </div>
+      </main>
     </div>
   )
 }

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BasketLearn — Maquette Wireframe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --wf-bg: #f0f0f0;
+      --wf-border: #aaa;
+      --wf-block: #ccc;
+      --wf-dark: #555;
+      --wf-accent: #888;
+    }
+    body { background: #e8e8e8; font-family: 'Courier New', monospace; }
+    .wf-page { background: white; border: 2px solid var(--wf-border); margin: 0 auto; max-width: 1100px; }
+    .wf-navbar { background: var(--wf-dark); color: white; padding: 12px 20px; display: flex; align-items: center; gap: 20px; }
+    .wf-navbar .brand { font-weight: bold; font-size: 1.1rem; border: 2px solid white; padding: 4px 12px; }
+    .wf-navbar .nav-links { display: flex; gap: 16px; font-size: 0.85rem; color: #ccc; }
+    .wf-navbar .nav-links span { border-bottom: 1px solid #aaa; cursor: pointer; }
+    .wf-navbar .nav-links span.active { color: white; border-bottom: 2px solid white; font-weight: bold; }
+    .wf-placeholder { background: var(--wf-block); border: 1px dashed var(--wf-border); display: flex; align-items: center; justify-content: center; color: var(--wf-dark); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+    .wf-label { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .wf-btn { background: var(--wf-dark); color: white; border: none; padding: 8px 20px; font-size: 0.85rem; cursor: pointer; font-family: inherit; }
+    .wf-btn-outline { background: white; color: var(--wf-dark); border: 2px solid var(--wf-dark); padding: 6px 18px; font-size: 0.85rem; font-family: inherit; }
+    .wf-card { border: 2px solid var(--wf-border); background: white; }
+    .wf-card-header { background: var(--wf-block); padding: 8px 14px; font-size: 0.85rem; font-weight: bold; border-bottom: 1px solid var(--wf-border); }
+    .wf-progress { height: 10px; background: #ddd; border: 1px solid var(--wf-border); }
+    .wf-progress-bar { height: 100%; background: var(--wf-dark); }
+    .wf-footer { background: var(--wf-dark); color: #ccc; padding: 16px 20px; font-size: 0.8rem; text-align: center; }
+    .wf-sidebar { border-right: 2px solid var(--wf-border); padding: 16px; }
+    .wf-nav-page { display: flex; flex-wrap: wrap; gap: 10px; padding: 20px; background: #f8f8f8; border-bottom: 2px solid var(--wf-border); }
+    .wf-nav-page a { background: var(--wf-dark); color: white; padding: 8px 16px; text-decoration: none; font-size: 0.8rem; border-radius: 2px; }
+    .wf-nav-page a:hover { background: #333; }
+    .wf-title-bar { padding: 20px; border-bottom: 2px solid var(--wf-border); background: #fafafa; }
+    .wf-title-bar h1 { font-size: 1.4rem; font-weight: bold; margin: 0; color: #333; letter-spacing: 2px; text-transform: uppercase; }
+    .wf-title-bar p { margin: 4px 0 0; font-size: 0.8rem; color: #888; }
+    .annotation { position: relative; }
+    .annotation::after { content: attr(data-note); position: absolute; top: -22px; left: 0; background: #fffde7; border: 1px solid #f0c000; color: #7a6000; font-size: 0.65rem; padding: 2px 6px; white-space: nowrap; z-index: 10; }
+  </style>
+</head>
+<body class="p-3">
+
+  <!-- Navigation entre pages -->
+  <div style="max-width: 1100px; margin: 0 auto 16px;">
+    <div class="d-flex align-items-center gap-2 mb-2">
+      <span style="font-size:1.5rem">🏀</span>
+      <strong style="font-size:1.1rem">BasketLearn — Maquette Wireframe Bootstrap</strong>
+      <span class="badge bg-secondary ms-2">Epitech CORELAB 2026</span>
+    </div>
+    <p style="font-size:0.8rem; color:#666; margin:0 0 12px;">Navigation entre les pages de la maquette :</p>
+  </div>
+
+  <div class="wf-nav-page" style="max-width:1100px; margin:0 auto 20px; border-radius:4px; border:2px solid #aaa;">
+    <a href="01-login.html">01 · Connexion</a>
+    <a href="02-first-login.html">02 · Premier login</a>
+    <a href="03-dashboard-etudiant.html">03 · Dashboard Étudiant</a>
+    <a href="04-liste-cours.html">04 · Liste des cours</a>
+    <a href="05-detail-cours.html">05 · Détail cours</a>
+    <a href="06-lecon.html">06 · Leçon</a>
+    <a href="07-quiz.html">07 · Quiz</a>
+    <a href="08-resultat-quiz.html">08 · Résultats quiz</a>
+    <a href="09-admin-dashboard.html">09 · Admin Dashboard</a>
+    <a href="10-admin-etudiants.html">10 · Admin Étudiants</a>
+    <a href="11-admin-cours.html">11 · Admin Cours</a>
+    <a href="12-admin-notes.html">12 · Admin Notes</a>
+  </div>
+
+  <!-- Aperçu 3 pages côte à côte -->
+  <div style="max-width:1100px; margin:0 auto;">
+    <p style="font-size:0.75rem; color:#888; margin-bottom:12px; text-transform:uppercase; letter-spacing:1px;">↓ Aperçu — ouvre chaque page ci-dessus pour voir le détail complet</p>
+
+    <div class="row g-3">
+      <div class="col-4">
+        <div class="wf-card">
+          <div class="wf-card-header">01 · Login</div>
+          <div class="p-3">
+            <div class="wf-placeholder mb-2" style="height:60px;">LOGO + TITRE</div>
+            <div class="wf-placeholder mb-2" style="height:28px;">EMAIL</div>
+            <div class="wf-placeholder mb-2" style="height:28px;">MOT DE PASSE</div>
+            <div class="wf-placeholder" style="height:36px; background:#555; color:white;">CONNEXION</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="wf-card">
+          <div class="wf-card-header">03 · Dashboard Étudiant</div>
+          <div class="p-3">
+            <div class="wf-placeholder mb-2" style="height:50px;">BIENVENUE + PROGRESSION</div>
+            <div class="row g-1 mb-2">
+              <div class="col-3"><div class="wf-placeholder" style="height:40px; font-size:0.6rem;">STAT</div></div>
+              <div class="col-3"><div class="wf-placeholder" style="height:40px; font-size:0.6rem;">STAT</div></div>
+              <div class="col-3"><div class="wf-placeholder" style="height:40px; font-size:0.6rem;">STAT</div></div>
+              <div class="col-3"><div class="wf-placeholder" style="height:40px; font-size:0.6rem;">STAT</div></div>
+            </div>
+            <div class="wf-placeholder" style="height:60px;">COURS EN COURS</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="wf-card">
+          <div class="wf-card-header">07 · Quiz</div>
+          <div class="p-3">
+            <div class="wf-placeholder mb-2" style="height:40px;">TITRE + PROGRESSION</div>
+            <div class="wf-placeholder mb-2" style="height:28px;">QUESTION 1</div>
+            <div class="wf-placeholder mb-1" style="height:22px; font-size:0.65rem;">○ OPTION A</div>
+            <div class="wf-placeholder mb-1" style="height:22px; font-size:0.65rem;">○ OPTION B</div>
+            <div class="wf-placeholder mb-1" style="height:22px; font-size:0.65rem;">● OPTION C (sélect.)</div>
+            <div class="wf-placeholder mt-2" style="height:30px; background:#555; color:white;">SOUMETTRE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

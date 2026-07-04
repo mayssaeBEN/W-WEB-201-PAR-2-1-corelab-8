@@ -1,0 +1,171 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f3ed;
+  color: #243447;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.bg-orange {
+  background-color: #f97316 !important;
+}
+
+.bg-navy {
+  background-color: #1f3a5f !important;
+}
+
+.text-navy {
+  color: #1f3a5f !important;
+}
+
+.bg-primary {
+  background-color: #f97316 !important;
+}
+
+.text-orange {
+  color: #f97316 !important;
+}
+
+.text-primary {
+  color: #f97316 !important;
+}
+
+.btn-primary {
+  background-color: #f97316;
+  border-color: #f97316;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #dc6514;
+  border-color: #dc6514;
+}
+
+.btn-outline-primary {
+  border-color: #f97316;
+  color: #f97316;
+}
+
+.btn-outline-primary:hover {
+  background-color: #f97316;
+  border-color: #f97316;
+  color: white;
+}
+
+.btn-orange {
+  background-color: #f97316;
+  border-color: #f97316;
+  color: white;
+}
+
+.btn-orange:hover,
+.btn-orange:focus {
+  background-color: #dc6514;
+  border-color: #dc6514;
+  color: white;
+}
+
+.btn-outline-orange {
+  background-color: transparent;
+  border-color: #f97316;
+  color: #f97316;
+}
+
+.btn-outline-orange:hover {
+  background-color: #f97316;
+  color: white;
+}
+
+.card {
+  border: 1px solid #e4ded5;
+}
+
+.card-header {
+  border-bottom: 0;
+}
+
+.progress-bar {
+  background-color: #f97316 !important;
+}
+
+.bg-success {
+  background-color: #2f855a !important;
+}
+
+.text-success {
+  color: #2f855a !important;
+}
+
+.bg-dark {
+  background-color: #1f3a5f !important;
+}
+
+.bg-light {
+  background-color: #f7f3ed !important;
+}
+
+.card.bg-light,
+.badge.bg-light {
+  background-color: #fffaf2 !important;
+}
+
+.alert-info {
+  background-color: #edf4f8;
+  border-color: #bfd3df;
+  color: #1f3a5f;
+}
+
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: white;
+  font-weight: 600;
+}
+
+.lesson-content h2 {
+  color: #222;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.lesson-content h3 {
+  color: #444;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.lesson-content p {
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-content ul,
+.lesson-content ol {
+  color: #444;
+  padding-left: 1.5rem;
+}
+
+.lesson-content li {
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+}
+
+.lesson-content table {
+  font-size: 0.9rem;
+}

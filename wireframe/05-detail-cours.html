@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wireframe · 05 Détail cours</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="wireframe.css" />
+</head>
+<body class="wf-body">
+  <div class="wf-topbar">
+    <a href="04-liste-cours.html">← Précédent</a>
+    <span>Page 05 — Détail cours</span>
+    <a href="06-lecon.html">Suivant →</a>
+  </div>
+  <div class="wf-page">
+    <div class="wf-navbar">
+      <div class="brand">🏀 BASKETLEARN</div>
+      <a class="nav-link" href="#">🏠 Tableau de bord</a>
+      <a class="nav-link active" href="#">📚 Cours</a>
+      <div class="ms-auto"><span style="font-size:0.8rem;color:#ccc;">👋 Jordan Martin</span><div class="wf-btn-sm">DÉCONNEXION</div></div>
+    </div>
+    <div class="wf-main">
+      <div class="wf-btn-outline mb-3" style="display:inline-block;font-size:0.8rem;padding:5px 14px;">← RETOUR AUX COURS</div>
+
+      <!-- Header cours -->
+      <div class="wf-hero mb-4" style="border-radius:0;">
+        <div class="d-flex align-items-center gap-3">
+          <div style="font-size:3rem;">🏀</div>
+          <div>
+            <div style="font-size:1.3rem;font-weight:bold;">Techniques de Dribble</div>
+            <div style="color:#aaa;font-size:0.85rem;margin-top:4px;">Crossover, between legs, behind the back et speed dribble.</div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <div class="d-flex justify-content-between mb-1">
+            <small style="color:#bbb;">Progression du cours</small>
+            <small style="color:white;font-weight:bold;">40%</small>
+          </div>
+          <div class="wf-progress"><div class="wf-progress-bar" style="width:40%;background:#fff;opacity:0.6;"></div></div>
+          <small style="color:#bbb;">2 / 5 leçons complétées</small>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Leçons -->
+        <div class="col-12 col-md-7">
+          <div class="wf-card">
+            <div class="wf-card-header">📖 Leçons</div>
+            <div class="p-3">
+              <!-- Leçon complétée -->
+              <div class="wf-block p-2 mb-2 d-flex align-items-center gap-3" style="border:1px solid #aaa;background:#e8ffe8;">
+                <div class="wf-block" style="width:36px;height:36px;background:#555;color:white;display:flex;align-items:center;justify-content:center;font-weight:bold;">✓</div>
+                <div class="flex-grow-1">
+                  <div style="font-size:0.85rem;font-weight:bold;">Bases du dribble et position du corps</div>
+                  <small style="color:#555;">Leçon complétée</small>
+                </div>
+                <span style="color:#888;">›</span>
+              </div>
+              <!-- Leçon complétée -->
+              <div class="wf-block p-2 mb-2 d-flex align-items-center gap-3" style="border:1px solid #aaa;background:#e8ffe8;">
+                <div class="wf-block" style="width:36px;height:36px;background:#555;color:white;display:flex;align-items:center;justify-content:center;font-weight:bold;">✓</div>
+                <div class="flex-grow-1">
+                  <div style="font-size:0.85rem;font-weight:bold;">Le crossover et ses variantes</div>
+                  <small style="color:#555;">Leçon complétée</small>
+                </div>
+                <span style="color:#888;">›</span>
+              </div>
+              <!-- Leçon disponible non faite -->
+              <div class="wf-block p-2 mb-2 d-flex align-items-center gap-3" style="border:1px solid #aaa;">
+                <div class="wf-block" style="width:36px;height:36px;background:#888;color:white;display:flex;align-items:center;justify-content:center;font-weight:bold;">3</div>
+                <div class="flex-grow-1">
+                  <div style="font-size:0.85rem;font-weight:bold;">Between the legs et Behind the back</div>
+                </div>
+                <span style="color:#888;">›</span>
+              </div>
+              <!-- Leçon verrouillée -->
+              <div class="wf-block p-2 mb-2 d-flex align-items-center gap-3" style="border:1px solid #aaa;opacity:0.65;cursor:not-allowed;">
+                <div class="wf-block" style="width:36px;height:36px;background:#bbb;color:white;display:flex;align-items:center;justify-content:center;">🔒</div>
+                <div class="flex-grow-1">
+                  <div style="font-size:0.85rem;font-weight:bold;">Dribble en situation de match</div>
+                  <small style="color:#888;">Disponible le 1 juillet 2026</small>
+                </div>
+              </div>
+              <!-- Leçon verrouillée -->
+              <div class="wf-block p-2 d-flex align-items-center gap-3" style="border:1px solid #aaa;opacity:0.65;cursor:not-allowed;">
+                <div class="wf-block" style="width:36px;height:36px;background:#bbb;color:white;display:flex;align-items:center;justify-content:center;">🔒</div>
+                <div class="flex-grow-1">
+                  <div style="font-size:0.85rem;font-weight:bold;">Exercices et drills avancés</div>
+                  <small style="color:#888;">Disponible le 15 juillet 2026</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz -->
+        <div class="col-12 col-md-5">
+          <div class="wf-card">
+            <div class="wf-card-header">✅ Quiz</div>
+            <div class="p-3">
+              <div class="wf-block p-3 mb-2">
+                <div style="font-weight:bold;font-size:0.85rem;margin-bottom:6px;">Quiz : Techniques de dribble</div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <small style="color:#888;">Seuil : 70%</small>
+                  <span class="wf-badge-dark">85% ✓</span>
+                </div>
+                <div class="wf-btn w-100 text-center" style="font-size:0.75rem;padding:6px;">REFAIRE LE QUIZ</div>
+              </div>
+              <div class="wf-block p-3">
+                <div style="font-weight:bold;font-size:0.85rem;margin-bottom:6px;">Quiz : Exercices avancés</div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <small style="color:#888;">Seuil : 70%</small>
+                </div>
+                <div class="wf-btn w-100 text-center" style="font-size:0.75rem;padding:6px;">DÉMARRER LE QUIZ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wf-annotations" style="max-width:1100px;margin:16px auto 0;">
+    <div class="wf-annotation">🔒 Leçon verrouillée = availableAt > aujourd'hui → curseur not-allowed + date affichée</div>
+    <div class="wf-annotation">✓ Leçon complétée = fond vert + coche blanche</div>
+    <div class="wf-annotation">📊 Résultat quiz affiché si déjà passé (badge score)</div>
+  </div>
+</body>
+</html>
